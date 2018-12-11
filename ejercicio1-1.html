@@ -10,16 +10,25 @@
         <h1>Enviar mensaje a Eduardo Navarro Poveda</h1>
     </header>
 
-    <br/>
-
     <section>
         <form>
-            First name:<br>
-            <input type="text" name="firstname"><br>
-            Last name:<br>
-            <input type="text" name="lastname">
+            Nombre:<br>
+            <input type="text" name="nombre"><br><br>
+            Apellidos:<br>
+            <input type="text" name="apellidos"><br><br>
+            Tipo de mensaje:<br>
+            <select name="opciones">
+                <option value="1">Contacto</option> 
+                <option value="2">Pregunta</option>
+            </select><br><br>
+            ¿Es urgente?<input type="checkbox" name="urgente" value="urgente"><br><br>
+            Mensaje a enviar:<br>
+            <textarea rows="4" cols="50">Escribe aquí tu mensaje.</textarea><br><br>
+            <button type="button">Enviar</button> 
           </form> 
     </section>
+
+    <br>
 
     <footer>
         <em>Realizado por Eduardo Navarro Poveda</em>
