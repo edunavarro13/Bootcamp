@@ -1,0 +1,12 @@
+body {
+    background-color: aquamarine;
+}
+
+/* Por id */
+header {
+    background-color: rebeccapurple;    
+}
+
+aside {
+    background-color: orangered;
+}

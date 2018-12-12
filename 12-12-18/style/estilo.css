@@ -1,0 +1,54 @@
+body {
+    background-color: aquamarine;
+}
+h1 {
+    color: red;
+    border: 2px solid gray;
+}
+h2 {
+    font-weight: bold;
+}
+
+/* Por id */
+#textareaid {
+    background-color: rebeccapurple;
+}
+
+/* Por clase */
+.miClase {
+    background-color: darkgoldenrod;
+    font-weight: bold;
+}
+
+/* Generico (afecta a todos) */
+*{
+    margin: 5px;
+}
+
+/* Por dataype */
+[data-type] {
+    color: blue;
+}
+[data-type2 = "verde"] {
+    color: green;
+}
+/*Contiene "rojo"*/
+[data-type *= "rojo"] {
+    color: red;
+}
+
+/* Link que cambia de color al ponerse encima*/
+a{
+    color: brown;
+}
+a:hover {
+    color: red;
+}
+
+/* Cambios a ciertos aspectos (primera letra, placeholder, etc) */
+::first-letter {
+    font-size: 35px;
+}
+::placeholder {
+    color: white;
+}
