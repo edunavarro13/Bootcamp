@@ -12,7 +12,7 @@ header {
 }
 aside {
     box-sizing: border-box;
-    background-image: linear-gradient(rgb(255, 60, 0), orange, rgb(255, 187, 0));
+    background-color: orangered;
     width: 15%;
     height: 90%;
     position: absolute;
@@ -92,14 +92,7 @@ main h1 {
     border-style: outset;
     font-family: Lobster;
 }
-aside img {
-    box-sizing: border-box;
-    margin-top: 15px;
-    width: 80%;
-    height: 25%;
-    border: 5px solid rgb(55, 42, 233);
-    border-style: outset;
-}
+
 section h2 {
     margin-top: 15px;
     font-size: 30px;
