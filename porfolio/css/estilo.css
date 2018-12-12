@@ -1,12 +1,83 @@
 body {
-    background-color: aquamarine;
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
 }
-
-/* Por id */
 header {
-    background-color: rebeccapurple;    
+    background-color: rgb(32, 105, 201);
+    height: 10%;
+}
+aside {
+    box-sizing: border-box;
+    background-color: orangered;
+    width: 15%;
+    height: 90%;
+    position: absolute;
+    font-weight: bold;
+    color: white;  
+    text-align: center;
+    border: 3px solid rgb(207, 71, 21);
+}
+main {
+    margin-left: 15%;
+    width: 85%;
+    height: 84%;
+    background-color: rgb(181, 245, 224);
+}
+footer {
+    background-color: rgb(196, 25, 25);
+    height: 6%;
+    margin-left: 15%;
+    text-align: center;
+    font-weight: bold;
+    color: white; 
+}
+section {
+    margin-left: 5px;
+}
+.cabecera {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;  
+    text-align: center;
+}
+li {
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.indice, .indice2 {
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-size: 18px;
+    text-decoration: underline;
+}
+.secciones {
+    margin-top: 8px;
+    margin-left: 30px;
+    font-size: 1;
+    font-weight: bold;
+}
+main h1 {
+    box-sizing: border-box;
+    font-size: 35px;
+    color: darkslateblue;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(133, 168, 233);
+    border: 3px solid gray;
 }
 
-aside {
-    background-color: orangered;
+section h2 {
+    margin-top: 15px;
+    font-size: 30px;
+    color: rgb(136, 61, 139);
+    font-weight: bold;
+}
+
+/* Link que cambia de color al ponerse encima*/
+a{
+    color: brown;
+}
+a:hover {
+    color: red;
 }
