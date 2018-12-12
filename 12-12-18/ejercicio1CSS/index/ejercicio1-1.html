@@ -4,6 +4,7 @@
 <head>
     <title>Mensaje</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" type="text/css" href="../css/estilo.css">
     
@@ -25,17 +26,17 @@
 
         <section>
             <form>
-                Nombre:<br>
-                <input type="text" name="nombre"><br><br>
-                Apellidos:<br>
-                <input type="text" name="apellidos"><br><br>
-                Tipo de mensaje:<br>
+                <p>Nombre:</p>
+                <input type="text" name="nombre" placeholder="Nombre"><br><br>
+                <p>Apellidos:</p>
+                <input type="text" name="apellidos" placeholder="Apellidos"><br><br>
+                <p>Tipo de mensaje:</p>
                 <select name="opciones">
                     <option value="1">Contacto</option>
                     <option value="2">Pregunta</option>
                 </select><br><br>
-                ¿Es urgente?<input type="checkbox" name="urgente" value="urgente"><br><br>
-                Mensaje a enviar:<br>
+                <p>¿Es urgente?<input type="checkbox" name="urgente" value="urgente"><br><br></p>
+                <p>Mensaje a enviar:</p>
                 <textarea rows="4" cols="50" placeholder="Escribe aquí tu mensaje."></textarea><br><br>
                 <input type="button" value="Enviar" />
                 <input type="button" onclick="location.href='ejercicio1.html';" value="Atrás" />
