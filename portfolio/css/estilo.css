@@ -1,115 +1,67 @@
-body {
-    background-color: white;
-    height: 100vh;
-    width: 100vw;
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: 1366px;
 }
-header {
+
+.titulo {
     box-sizing: border-box;
-    background-color: rgb(34, 101, 189);
-    height: 10%;
-    border: 4px solid rgb(26, 26, 165);
-    border-style: outset;
+    height: 10vh;
+    margin: 0px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    position: fixed;
 }
-aside {
+
+.barra-lateral {
     box-sizing: border-box;
-    background-color: orangered;
-    width: 15%;
-    height: 90%;
-    position: absolute;
-    font-weight: bold;
-    color: white;  
-    text-align: center;
-    border: 3px solid rgb(207, 71, 21);
-    border-style: outset;
+    height: 90vh;
+    margin: 0px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    margin-top: 10vh;
+    position: fixed;
 }
-main {
-    margin-left: 15%;
-    width: 85%;
-    height: 84%;
+
+.principal {
+    box-sizing: border-box;
+    border: 2px solid white;
     background-image: url("../imagenes/folio.png");
 }
-footer {
+
+.footer {
     box-sizing: border-box;
-    background-color: rgb(196, 25, 25);
-    height: 6%;
-    margin-left: 15%;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    border: 4px solid rgb(158, 52, 14);
-    border-style: inset; 
-}
-section {
-    margin-left: 5px;
-}
-article {
-    margin-top: 20px;
-    font-style: italic;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-}
-.cabecera {
-    font-size: 40px;
-    font-weight: bold;
-    color: white;  
-    text-align: center;
-}
-li {
-    margin-bottom: 10px;
-    font-size: 17px;
-}
-p {
-    font-size: 17px;
-    font-weight: bold;
-    margin-bottom: 2px;
-}
-.indice, .indice2 {
-    margin-bottom: 15px;
-    margin-top: 10px;
-    font-size: 18px;
-    text-decoration: underline;
-}
-.secciones {
-    margin-top: 8px;
-    margin-left: 30px;
-    font-size: 1;
-    font-weight: bold;
-}
-.boton-redondo{
+    margin: 0px;
+    border: 2px solid white;
     border-radius: 10px;
-    background-color: rgb(34, 101, 189);
-    color: white;
-    font-weight: bold;
+    height: 10vh;
 }
-main h1 {
-    box-sizing: border-box;
-    font-size: 35px;
-    color: darkslateblue;
-    text-align: center;
-    font-weight: bold;
-    background-color: rgb(133, 168, 233);
-    border: 3px solid gray;
-    border-style: outset;
-    font-family: Lobster;
+.img-titulo {
+    width: 6vw;
+    height: 9vh;
+    margin-left: 5vw;
 }
-
-section h2 {
-    margin-top: 15px;
-    font-size: 30px;
-    color: rgb(136, 61, 139);
-    font-weight: bold;
-    text-decoration: underline;
+.logo {
+    width: 4vw;
+    height: 8vh;
+    display: block;
+    margin: auto;
+    margin-top: 7vh;
 }
 
-/* Link que cambia de color al ponerse encima*/
-a{
-    color: brown;
-}
-a:hover {
-    color: red;
-}
+.parallax {
+    /* The image used */
+    background-image: url("https://estaticos.elperiodico.com/resources/jpg/6/8/1530540262286.jpg");
 
-::placeholder {
-    font-style: italic;
-    color: rgb(52, 52, 199);
+    /* Set a specific height */
+    min-height: 500px;
+
+    width: 100vw;
+    height: 100vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
