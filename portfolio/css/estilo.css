@@ -6,11 +6,12 @@
 
 .titulo {
     box-sizing: border-box;
-    height: 10vh;
+    height: 12vh;
+    width: 100vw;
     margin: 0px;
-    border: 2px solid rgba(255, 255, 255, .5);
-    border-radius: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
     position: fixed;
+    background-image: url("../imagenes/cabecera.png");
 }
 
 .barra-lateral {
@@ -22,11 +23,21 @@
     margin-top: 10vh;
     position: fixed;
 }
-
-.principal {
+.espacioBlanco {
+    height: 12vh;
+}
+.pantalla2 {
     box-sizing: border-box;
-    border: 2px solid white;
-    background-image: url("../imagenes/folio.png");
+    height: 78vh;
+}
+
+.cabecera-separador{
+    height: 12vh;
+    border-left: 1px solid rgb(70, 68, 68);
+}
+
+.cabecera-separador2 {
+    border-right: 1px solid rgb(70, 68, 68);
 }
 
 .footer {
@@ -36,10 +47,18 @@
     border-radius: 10px;
     height: 10vh;
 }
+.rowInicio {
+    padding-top: 30vh;
+}
+.tarjeta {
+    height: 100%;
+    width: 100%;
+}
 .img-titulo {
-    width: 6vw;
-    height: 9vh;
+    width: 8vw;
+    height: 11vh;
     margin-left: 5vw;
+    border-radius: 50%;
 }
 .logo {
     width: 4vw;
@@ -51,7 +70,7 @@
 
 .parallax {
     /* The image used */
-    background-image: url("https://estaticos.elperiodico.com/resources/jpg/6/8/1530540262286.jpg");
+    background-image: url("../imagenes/fondo2.jpg");
 
     /* Set a specific height */
     min-height: 500px;
