@@ -5,6 +5,9 @@
      margin-top: 1vh;
      font-family: 'Unlock', cursive;
  }
+ .mod-neones {
+    margin-top: 0;
+ }
  a {
      text-decoration: none;
      -webkit-transition: all 0.5s;
@@ -13,7 +16,7 @@
  }
 
  .neones:nth-child(1) a {
-     color: rgb(167, 167, 167);
+     color: rgb(255, 171, 64);;
      font-family: 'Unlock', cursive;
      -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
      -moz-animation: neon1 1.5s ease-in-out infinite alternate;
@@ -28,7 +31,7 @@
  }
 
  .neones:nth-child(2) a {
-     font-size: 1.5em;
+     font-size: 100%;
      color: #228DFF;
      font-family: Iceland;
  }

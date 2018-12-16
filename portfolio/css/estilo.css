@@ -41,7 +41,17 @@
 }
 /* Pagina 2*/
 .proyectos {
-    background-image: url("../imagenes/fondo3.png");   
+    background-image: url("../imagenes/fondo3.png");
+    width: 100vw; 
+    padding-bottom: 4vh;  
+}
+/* Pie de pagina */
+.pie-pagina {
+    height: 4vh;
+    width: 100vw;
+    background-image: url("../imagenes/cabecera.png");
+    box-sizing: border-box;
+    border-top: 4px solid silver;
 }
 .linea-proyectos {
     height: 50%;
@@ -94,6 +104,7 @@
     border-radius: 10px;
     height: 5%;
     width: 100%;
+    margin-top: 12%;
 }
 .card-image {
     padding-top: 5%;
