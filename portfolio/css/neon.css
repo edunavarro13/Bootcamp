@@ -1,17 +1,10 @@
  /*Neon*/
  .neones {
      text-align: center;
-     font-size: 6vh;
+     font-size: 120%;
      margin-top: 1vh;
      font-family: 'Unlock', cursive;
  }
-
- .version-small {
-    text-align: center;
-    font-size: 4vh;
-    font-family: 'Unlock', cursive;
- }
-
  a {
      text-decoration: none;
      -webkit-transition: all 0.5s;

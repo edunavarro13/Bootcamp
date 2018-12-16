@@ -6,37 +6,66 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
+.row{
+    margin: 0;
+}
+
 .titulo {
     box-sizing: border-box;
-    height: 12vh;
-    width: 100vw;
+    height: 12%;
+    width: 100%;
     margin: 0px;
     border-bottom: 4px solid silver;
     position: fixed;
     z-index: 100;
-    background-image: linear-gradient(to right, #033b7e, #0678b3);
+    /*background-image: linear-gradient(to right, #033b7e, #0678b3);*/
+    background-image: url("../imagenes/cabecera.png");
     
+}
+/* Pagina 1 */
+.portada {
+    /* The image used */
+    background-image: url("../imagenes/fondo4.png");
+
+    /* Set a specific height */
+    min-height: 500px;
+
+    width: 100vw;
+    height: 100vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Pagina 2*/
+.proyectos {
+    background-image: url("../imagenes/fondo3.png");   
+}
+.linea-proyectos {
+    height: 50%;
+}
+.centrado {
+    display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .imgEdu {
     height: 100%;
     width: 100%;
     border-radius: 50%;
-    border: 1px solid rgba(192, 192, 192, 0.849);
+    border: 1.5px solid rgba(192, 192, 192, 0.849);
 }
+/* Linea que separa el "Hola soy... " del resto*/
 .linea-separadora {
-    height: 1.5px;
+    height: 0.2vw;
     background-color: white;
+    border: 0.1vw solid silver;
 }
-.espacioBlanco {
-    height: 12vh;
-}
-.pantalla2 {
-    background-color: black;
-    height: 78vh;
-    
-}
+/* Linea que separa el titulo del resto*/
 .cabecera-separador{
-    height: 12vh;
+    height: 100%;
     border-left: 1px solid silver;
 }
 .cabecera-separador2 {
@@ -46,22 +75,28 @@
     font-family: 'Exo 2', sans-serif;
     color: white;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 115%;
     text-shadow: black 0.1em 0.1em 0.2em;
 }
 .presentacion-titulo {
-    font-size: 35px;
+    font-size: 150%;
     letter-spacing: 1px;
 }
 .fondo-tarjeta {
     background-image: url("../imagenes/cabecera.png");
     color: silver;
+    font-weight: bold;
 }
 .rowInicio {
-    padding-top: 28vh;
+    padding-top: 20vw;
 }
 .card {
     border-radius: 10px;
+    height: 5%;
+    width: 100%;
+}
+.card-image {
+    padding-top: 5%;
 }
 .card-action{
     color: silver;
@@ -85,20 +120,13 @@
     margin: auto;
     margin-top: 7vh;
 }
-
-.parallax {
-    /* The image used */
-    background-image: url("../imagenes/fondo4.png");
-
-    /* Set a specific height */
-    min-height: 500px;
-
-    width: 100vw;
-    height: 100vh;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.parrafos-indices {
+    height: 5%;
+    color: white;
+    font-family: 'Unlock', cursive;
+}
+h2 {
+    margin: 0;
+    padding: 1%;
+    text-align: center;
 }

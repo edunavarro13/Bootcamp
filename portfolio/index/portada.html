@@ -6,12 +6,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Unlock" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <!-- ############ MATERIALIZE ########## -->
     <!-- Compiled and minified CSS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- ################################### -->
     <link rel="stylesheet" type="text/css" href="../css/neon.css">
@@ -19,29 +18,28 @@
 </head>
 
 <body>
-
     <div class="container">
-        <div class="row titulo">
-            <div class="col s1">
+        <div class="row titulo centrado">
+            <div class="col s2 m1">
                 <span class="flow-text">
                     <img class="img-titulo" src="../imagenes/logoEdu.png">
                 </span>
             </div>
-            <div class="col s2 offset-s1 cabecera-separador">
+            <div class="col s3 m2 offset-m1 cabecera-separador">
                 <span class="flow-text">
                     <div class="neones"><a href="portada.html">
                             Inicio
                         </a></div>
                 </span>
             </div>
-            <div class="col s4 cabecera-separador">
+            <div class="col s4 m4 cabecera-separador">
                 <span class="flow-text">
                     <div class="neones"><a href="https://en.wikipedia.org/wiki/Blue">
                             Curriculum
                         </a></div>
                 </span>
             </div>
-            <div class="col s3 cabecera-separador cabecera-separador2">
+            <div class="col s3 m3 cabecera-separador cabecera-separador2">
                 <span class="flow-text">
                     <div class="neones"><a href="https://en.wikipedia.org/wiki/Blue">
                             Contacto
@@ -49,53 +47,88 @@
                 </span>
             </div>
         </div>
-        <div class="row">
-            <div class="parallax">
-                <div class="row rowInicio">
-                    <div class="col s8 offset-s2">
-                        <div class="col s3">
-                            <img class="imgEdu" src="../imagenes/OhxofePI.jpg">
-                        </div>
-                        <div class="col s9 presentacion">
-                            <span class="presentacion-titulo">Hola, soy Eduardo Navarro Poveda.</span>
-                            <p class="linea-separadora"></p>
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <!--
-                        <div class="card fondo-tarjeta">
-                            <div class="card-content white-text tarjeta">
-                                <div class="row">
-                                    <div class="col s3 seccion-izquierda fondo-tarjeta2">
-                                        <img class="imgEdu" src="../imagenes/OhxofePI.jpg">
-                                    </div>
-                                    <div class="col s9">
-                                        <span class="card-title">Hola, soy Eduardo Navarro Poveda.</span>
-                                        <p class="linea-dorada"></p>
-                                        <p>I am a very simple card. I am good at containing small bits of information.
-                                            I am convenient because I require little markup to use effectively.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-action fondo-tarjeta2">
-                                Contacta conmigo
-                            </div>
-                        </div>-->
-                    </div>
+        <div class="row portada rowInicio">
+            <div class="col s12 m8 offset-m2">
+                <div class="col s3 m3">
+                    <img class="imgEdu" src="../imagenes/OhxofePI.jpg">
+                </div>
+                <div class="col s9 m9 presentacion">
+                    <span class="presentacion-titulo">Hola, soy Eduardo Navarro Poveda.</span>
+                    <p class="linea-separadora"></p>
+                    <p>Soy un ingeniero informático graduado por la Universidad de Alicante. Soy un amante de la
+                        tecnología y la innovación y siempre estoy deseando embarcarme en algún proyecto novedoso. Si
+                        quieres saber más sobre mí, ve hacia abajo. </p>
                 </div>
             </div>
         </div>
-        <div class="row pantalla2 duack">
-            <div class="col s3 offset-s2">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="../imagenes/duack.png">
-                        <span class="card-title">Card Title</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <!-- Proyecto Pagina 2-->
+        <div class="row proyectos">
+            <div class="row parrafos-indices">
+                <h2>Proyectos</h2>
+            </div>
+            <div class="row linea-proyectos">
+                <div class="col s12 m4 offset-m1">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="../imagenes/duack.png">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content fondo-tarjeta">
+                                <p>dUAck es un chatbot de turismo que permite comprobar qué lugares de interés turístico hay cerca de ti. Fue mi TFG.</p>
+                            </div>
+                            <div class="card-action fondo-tarjeta">
+                                <a href="https://github.com/edunavarro13/ChatbotTurismo" target="_blank">Proyecto dUAck</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-content fondo-tarjeta">
-                        <p>I am a very simple card. I am good at containing small bits of information. I am
-                            convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="col m2"></div>
+                <div class="col s12 m4">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="../imagenes/LogoN1M_App.png">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content fondo-tarjeta">
+                                <p>N1M ayuda a prevenir y concienciar sobre la violencia de género y para realizar llamadas de auxilio en caso de necesidad.</p>
+                            </div>
+                            <div class="card-action fondo-tarjeta">
+                                <a href="#">Proyecto N1M</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row linea-proyectos">
+                <div class="col s12 m4 offset-m1">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="../imagenes/androidStudio.png">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content fondo-tarjeta">
+                                <p>Conjunto de programas que realicé al terminar con éxito el Curso Online de programación Android de la Universidad Politécnica de Valencia.</p>
+                            </div>
+                            <div class="card-action fondo-tarjeta">
+                                <a href="https://github.com/edunavarro13/ChatbotTurismo/tree/master/Tutoriales" target="_blank">Proyecto Android</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m2"></div>
+                <div class="col s12 m4">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="../imagenes/duack.png">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content fondo-tarjeta">
+                                <p>I am a very simple card. I am good at containing small bits of information.</p>
+                            </div>
+                            <div class="card-action fondo-tarjeta">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
