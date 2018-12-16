@@ -72,9 +72,15 @@
     border-radius: 50%;
     border: 1.5px solid rgba(192, 192, 192, 0.849);
 }
+.curriculumEdu {
+    padding-top: 5%;
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+}
 .imgRajoy {
     margin: 5vh;
-    height: 60vh;
+    height: 47.6vh;
 }
 /* Linea que separa el "Hola soy... " del resto*/
 .linea-separadora {
