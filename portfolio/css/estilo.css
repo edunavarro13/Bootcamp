@@ -53,6 +53,11 @@
     box-sizing: border-box;
     border-top: 4px solid silver;
 }
+/* Pagina de contacto similar a proyecto pero con algun cambio */
+.contacto {
+    padding: 12vh;
+}
+
 .linea-proyectos {
     height: 50%;
 }
@@ -66,6 +71,10 @@
     width: 100%;
     border-radius: 50%;
     border: 1.5px solid rgba(192, 192, 192, 0.849);
+}
+.imgRajoy {
+    margin: 5vh;
+    height: 60vh;
 }
 /* Linea que separa el "Hola soy... " del resto*/
 .linea-separadora {
@@ -140,4 +149,8 @@ h2 {
     margin: 0;
     padding: 1%;
     text-align: center;
+}
+.redes-sociales {
+    width: 33%;
+    height: 33%;
 }

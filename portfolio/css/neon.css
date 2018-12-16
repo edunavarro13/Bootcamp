@@ -15,7 +15,7 @@
      transition: all 0.5s;
  }
 
- .neones:nth-child(1) a {
+ .neones:nth-child(1) a,  .neones:nth-child(2) a, .neones:nth-child(3) a {
      color: rgb(255, 171, 64);;
      font-family: 'Unlock', cursive;
      -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
@@ -23,34 +23,11 @@
      animation: neon1 1.5s ease-in-out infinite alternate;
  }
 
- .neones:nth-child(1) a:hover {
+ .neones:nth-child(1) a:hover, .neones:nth-child(2) a:hover, .neones:nth-child(3) a:hover {
      color: white;
      -webkit-animation: none;
      -moz-animation: none;
      animation: none;
- }
-
- .neones:nth-child(2) a {
-     font-size: 100%;
-     color: #228DFF;
-     font-family: Iceland;
- }
-
- .neones:nth-child(2) a:hover {
-     -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
-     -moz-animation: neon2 1.5s ease-in-out infinite alternate;
-     animation: neon2 1.5s ease-in-out infinite alternate;
- }
-
- .neones:nth-child(3) a {
-     color: #FFDD1B;
-     font-family: Pacifico;
- }
-
- .neones:nth-child(3) a:hover {
-     -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
-     -moz-animation: neon3 1.5s ease-in-out infinite alternate;
-     animation: neon3 1.5s ease-in-out infinite alternate;
  }
 
  .neones:nth-child(4) a {
