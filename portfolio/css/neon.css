@@ -5,6 +5,12 @@
      margin-top: 1vh;
      font-family: 'Unlock', cursive;
  }
+ @media screen and (max-width: 600px) {
+    .neones {
+      font-size: 80%;
+      margin-top: 3vh;
+    }
+  }
  .mod-neones {
     margin-top: 0;
  }

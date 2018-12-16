@@ -1,4 +1,3 @@
-
 .container {
     width: 100%;
     height: 100%;
@@ -6,7 +5,7 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
-.row{
+.row {
     margin: 0;
 }
 
@@ -20,8 +19,9 @@
     z-index: 100;
     /*background-image: linear-gradient(to right, #033b7e, #0678b3);*/
     background-image: url("../imagenes/cabecera.png");
-    
+
 }
+
 /* Pagina 1 */
 .portada {
     /* The image used */
@@ -39,12 +39,14 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 /* Pagina 2*/
 .proyectos {
     background-image: url("../imagenes/fondo3.png");
-    width: 100vw; 
-    padding-bottom: 4vh;  
+    width: 100vw;
+    padding-bottom: 4vh;
 }
+
 /* Pie de pagina */
 .pie-pagina {
     height: 4vh;
@@ -53,6 +55,7 @@
     box-sizing: border-box;
     border-top: 4px solid silver;
 }
+
 /* Pagina de contacto similar a proyecto pero con algun cambio */
 .contacto {
     padding: 12vh;
@@ -61,41 +64,49 @@
 .linea-proyectos {
     height: 50%;
 }
+
 .centrado {
     display: flex;
-   justify-content: center;
-   align-items: center;
+    justify-content: center;
+    align-items: center;
 }
+
 .imgEdu {
     height: 100%;
     width: 100%;
     border-radius: 50%;
     border: 1.5px solid rgba(192, 192, 192, 0.849);
 }
+
 .curriculumEdu {
     padding-top: 5%;
     height: 80%;
     width: 80%;
     border-radius: 50%;
 }
+
 .imgRajoy {
     margin: 5vh;
     height: 47.6vh;
 }
+
 /* Linea que separa el "Hola soy... " del resto*/
 .linea-separadora {
     height: 0.2vw;
     background-color: white;
     border: 0.1vw solid silver;
 }
+
 /* Linea que separa el titulo del resto*/
-.cabecera-separador{
+.cabecera-separador {
     height: 100%;
     border-left: 1px solid silver;
 }
+
 .cabecera-separador2 {
     border-right: 1px solid silver;
 }
+
 .presentacion {
     font-family: 'Exo 2', sans-serif;
     color: white;
@@ -103,60 +114,104 @@
     font-size: 115%;
     text-shadow: black 0.1em 0.1em 0.2em;
 }
+
 .presentacion-titulo {
     font-size: 150%;
     letter-spacing: 1px;
 }
+
 .fondo-tarjeta {
     background-image: url("../imagenes/cabecera.png");
     color: silver;
     font-weight: bold;
 }
+
 .rowInicio {
     padding-top: 20vw;
 }
+
 .card {
     border-radius: 10px;
     height: 5%;
     width: 100%;
     margin-top: 12%;
 }
+
 .card-image {
     padding-top: 5%;
 }
-.card-action{
+
+.card-action {
     color: silver;
     text-align: center;
     font-family: 'Unlock', cursive;
     font-size: 23px;
 }
+
 .tarjeta {
     height: 100%;
     width: 100%;
 }
+
 .img-titulo {
     width: 8vw;
-    height: 11vh;
-    margin-left: 5vw;
+    height: 9vh;
+    margin-left: 3vw;
+    margin-top: 1vh;
 }
+
 .logo {
     width: 4vw;
-    height: 8vh;
+    height: 7vh;
     display: block;
     margin: auto;
     margin-top: 7vh;
 }
+
 .parrafos-indices {
     height: 5%;
     color: white;
     font-family: 'Unlock', cursive;
 }
+
+/* En el titulo de curriculm vitae es demasiado grande para el responsive*/
+@media screen and (max-width: 600px) {
+    .h2-curriculum {
+        font-size: 250%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .columnas-responsive {
+        font-size: 90%;
+    }
+}
+
 h2 {
     margin: 0;
     padding: 1%;
     text-align: center;
 }
+
 .redes-sociales {
     width: 33%;
     height: 33%;
+}
+
+/* Botones arriba */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    height: 15vh;
+    width: 8vw;
 }
