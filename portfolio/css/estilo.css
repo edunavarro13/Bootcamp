@@ -215,3 +215,9 @@ h2 {
     height: 15vh;
     width: 8vw;
 }
+.slider {
+    margin-top: 3vh;
+}
+.slider .indicators .indicator-item.active {
+    background-color: rgb(255, 171, 64);
+}

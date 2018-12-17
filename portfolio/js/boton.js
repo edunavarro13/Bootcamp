@@ -14,3 +14,15 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// ----------- SLIDER MATERIALIZE ---------------------
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.slider');
+  var instances = M.Slider.init(elems, options);
+});
+
+// Or with jQuery
+
+$(document).ready(function(){
+  $('.slider').slider();
+});

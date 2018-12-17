@@ -22,7 +22,7 @@
  }
 
  .neones:nth-child(1) a,  .neones:nth-child(2) a, .neones:nth-child(3) a {
-     color: rgb(255, 171, 64);;
+     color: rgb(255, 171, 64);
      font-family: 'Unlock', cursive;
      -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
      -moz-animation: neon1 1.5s ease-in-out infinite alternate;
