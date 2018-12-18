@@ -11,6 +11,18 @@
 let caracterInicial = (texto) => {
     // Aquí tu código.  Desde aquí:
     
+    if (typeof texto == 'string') {
+        if (texto === "") {
+            return 'Debo ser ejecutada con un string no vacío';
+        }
+        else {
+            return texto[0];
+        }
+    }
+    else {
+        return 'Debo ser ejecutada con un string';
+    }
+
     // Hasta aquí.
 }
 
