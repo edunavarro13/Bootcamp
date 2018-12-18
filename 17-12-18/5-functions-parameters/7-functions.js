@@ -8,6 +8,9 @@
 
 // Aquí tu código
 
+function convierteEurosEnPesetas (euros) {
+    return euros*168;
+}
 
 // Hasta aquí
 
