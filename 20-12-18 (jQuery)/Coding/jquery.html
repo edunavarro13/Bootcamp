@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).on('DOMContentLoaded', function() {
+        console.log('DOM READY');
+        var lastTimeStamp = Date.now();
+        $('a').on('click', function(ev) {
+          ev.preventDefault();
+          let timeStamp = Date.now();
+          console.log(timeStamp, lastTimeStamp, timeStamp - lastTimeStamp);
+
+          if (timeStamp - lastTimeStamp > 10000) {
+            console.log(ev);
+            $(ev.target).fadeOut(3000);
+            lastTimeStamp = Date.now();
+          } else {
+            console.error('espera 10 segundos impaciente');
+          }
+        });
+
+        $('input').on('keyup', ev => {
+          if (ev.keyCode === 13) {
+            let userInputText = ev.target.value;
+            console.log('GETTER NATIVO DEL VALUE:', ev.target.value);
+            // console.log('GETTER DE JQUERY:', $(ev.target).val());
+            // SETTER NATIVO
+            // ev.target.value = '';
+
+            // SETTER JQUERY
+            $(ev.target).val('');
+
+            $('.userInput').text(userInputText);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header><h1>jQuery demo</h1></header>
+    <section>
+      <div><a href="http://geekshubsacademy.com">geekshubsacademy</a></div>
+
+      <div><a href="http://google.com">google</a></div>
+
+      <div><a href="http://geekshubsacademy.com">geekshubsacademy</a></div>
+
+      <div><a href="http://f1.com">f1</a></div>
+
+      <div><a href="http://geekshubsacademy.com">geekshubsacademy</a></div>
+    </section>
+    <section><h2 class="userInput"></h2></section>
+    <footer><input type="text" placeholder="Dinos tu email para que te spaméemos" /></footer>
+  </body>
+</html>

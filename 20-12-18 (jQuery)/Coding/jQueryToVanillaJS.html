@@ -1,0 +1,3149 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 12px; line-height: 22px; word-wrap: break-word; } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } img { max-width: 100%; max-height: 100%; } a { color: #4080D0; text-decoration: none; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } a:hover { color: #4080D0; text-decoration: underline; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left: 5px solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ .vscode-light { color: rgb(30, 30, 30); } .vscode-dark { color: #DDD; } .vscode-high-contrast { color: white; } .vscode-light code { color: #A31515; } .vscode-dark code { color: #D7BA7D; } .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } .vscode-light blockquote, .vscode-dark blockquote { background: rgba(127, 127, 127, 0.1); border-color: rgba(0, 122, 204, 0.5); } .vscode-high-contrast blockquote { background: transparent; border-color: #fff; }
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-left: 40px; } .task-list-item { list-style-type: none; } .task-list-item-checkbox { vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+
+<h1>Table of contents</h1>
+<ul>
+    <li><a href="#table-of-contents">Table of contents</a></li>
+    <li><a href="#prerequisitiesprerequisities">Prerequisities#</a></li>
+    <li><a href="#essentialsessentials">Essentials#</a>
+        <ul>
+            <li><a href="#jquery-functionjquery-function">jQuery function#</a>
+                <ul>
+                    <li><a href="#get-element-collection">Get element collection</a>
+                        <ul>
+                            <li><a href="#jquery--prerequisitiesprerequisities">jQuery- Prerequisities#</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-element-collection-in-the-specific-container">Get element collection in the specific container</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#create-a-new-element">Create a new element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#specify-a-function-to-execute-when-the-dom-is-fully-loaded">Specify a function to execute when the DOM is fully loaded</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#eacheach">each#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-es6">Vanilla ES6+</a>
+                - <a href="#vanilla-es5">Vanilla ES5</a>
+                - <a href="#anywhere---large-collections">Anywhere - large collections</a></li>
+        </ul>
+    </li>
+    <li><a href="#general-attributesgeneral-attributes">General attributes#</a>
+        <ul>
+            <li><a href="#attrattr">attr#</a>
+                <ul>
+                    <li><a href="#set-attribute-to-a-single-element">Set attribute to a single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-attribute-to-the-set-of-elements">Set attribute to the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-attribute-value">Get attribute value</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-plain-object-containing-all-element-attributes-as-a-name--value-pairs">Get plain object containing all element attributes as a <code>name: value</code> pairs</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#removeattrremoveattr">removeAttr#</a>
+                <ul>
+                    <li><a href="#remove-attribute-from-a-single-element">Remove attribute from a single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#remove-attribute-from-the-set-of-elements">Remove attribute from the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#valval">val#</a>
+                <ul>
+                    <li><a href="#get-element-value">Get element value</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-value-to-a-single-element">Set value to a single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-value-to-the-set-of-elements">Set value to the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#class-attributeclass-attribute">Class attribute#</a>
+        <ul>
+            <li><a href="#addclassaddclass">addClass#</a>
+                <ul>
+                    <li><a href="#add-single-class">Add single class</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#add-multiple-classes">Add multiple classes</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#add-class-to-the-set-of-elements">Add class to the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#removeclassremoveclass">removeClass#</a>
+                <ul>
+                    <li><a href="#remove-single-class">Remove single class</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#remove-multiple-classes">Remove multiple classes</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#remove-class-from-the-set-of-elements">Remove class from the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#toggleclasstoggleclass">toggleClass#</a>
+                <ul>
+                    <li><a href="#toggle-class">Toggle class</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#conditionally-toggle-class">Conditionally toggle class</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#toggle-class-on-the-set-of-elements">Toggle class on the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#hasclasshasclass">hasClass#</a>
+                <ul>
+                    <li><a href="#check-if-single-element-has-certain-class">Check if single element has certain class</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#check-if-at-least-one-of-elements-in-the-set-has-certain-class">Check if at least one of elements in the set has certain class</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#insertion-insideinsertion-inside">Insertion inside#</a>
+        <ul>
+            <li><a href="#appendappend">append#</a>
+                <ul>
+                    <li><a href="#append-element-to-single-target">Append element to single target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#append-element-to-the-set-of-targets">Append element to the set of targets</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#appendtoappendto">appendTo#</a>
+                <ul>
+                    <li><a href="#append-single-element-to-target">Append single element to target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#append-the-set-of-elements-to-target">Append the set of elements to target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#prependprepend">prepend#</a>
+                <ul>
+                    <li><a href="#prepend-element-to-single-target">Prepend element to single target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#prepend-element-to-the-set-of-targets">Prepend element to the set of targets</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#prependtoprependto">prependTo#</a>
+                <ul>
+                    <li><a href="#prepend-single-element-to-target">Prepend single element to target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#prepend-the-set-of-elements-to-target">Prepend the set of elements to target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#htmlhtml">html#</a>
+                <ul>
+                    <li><a href="#get-element-html">Get element HTML</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-html">Set element HTML</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-html-to-the-set-of-elements">Set HTML to the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#texttext">text#</a>
+                <ul>
+                    <li><a href="#get-element-text">Get element text</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-text-from-the-set-of-elements">Get text from the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-text">Set element text</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-text-to-the-set-of-elements">Set text to the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#insertion-outsideinsertion-outside">Insertion outside#</a>
+        <ul>
+            <li><a href="#beforebefore">before#</a>
+                <ul>
+                    <li><a href="#insert-element-before-single-target">Insert element before single target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#insert-element-before-the-set-of-targets">Insert element before the set of targets</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#insertbeforeinsertbefore">insertBefore#</a>
+                <ul>
+                    <li><a href="#insert-single-element-before-target">Insert single element before target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#insert-the-set-of-elements-before-target">Insert the set of elements before target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#afterafter">after#</a>
+                <ul>
+                    <li><a href="#insert-element-after-single-target">Insert element after single target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#insert-element-after-the-set-of-targets">Insert element after the set of targets</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#insertafterinsertafter">insertAfter#</a>
+                <ul>
+                    <li><a href="#insert-single-element-after-target">Insert single element after target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#insert-the-set-of-elements-after-the-target">Insert the set of elements after the target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#insertion-aroundinsertion-around">Insertion around#</a>
+        <ul>
+            <li><a href="#wrapwrap">wrap#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#wrapallwrapall">wrapAll#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-es6">Vanilla ES6+</a>
+                - <a href="#vanilla-es5">Vanilla ES5</a></li>
+            <li><a href="#wrapinnerwrapinner">wrapInner#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#unwrapunwrap">unwrap#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+        </ul>
+    </li>
+    <li><a href="#removalremoval">Removal#</a>
+        <ul>
+            <li><a href="#detachdetach">detach#</a>
+                <ul>
+                    <li><a href="#detach-single-element">Detach single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#detach-the-set-of-elements">Detach the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#removeremove">remove#</a>
+                <ul>
+                    <li><a href="#remove-single-element">Remove single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#remove-the-set-of-elements">Remove the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#emptyempty">empty#</a>
+                <ul>
+                    <li><a href="#empty-single-element">Empty single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#empty-the-set-of-elements">Empty the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#replacementreplacement">Replacement#</a>
+        <ul>
+            <li><a href="#replacewithreplacewith">replaceWith#</a>
+                <ul>
+                    <li><a href="#replace-single-element">Replace single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#replace-each-element-in-the-set">Replace each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#replaceallreplaceall">replaceAll#</a>
+                <ul>
+                    <li><a href="#replace-a-single-target">Replace a single target</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#replace-the-set-of-targets">Replace the set of targets</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#tree-traversaltree-traversal">Tree traversal#</a>
+        <ul>
+            <li><a href="#childrenchildren">children#</a>
+                <ul>
+                    <li><a href="#get-single-element-children">Get single element children</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-single-element-children-filtered-by-selector">Get single element children filtered by selector</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-children-from-the-set-of-elements">Get children from the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-children-filtered-by-selector-from-the-set-of-elements">Get children filtered by selector from the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#contentscontents">contents#</a>
+                <ul>
+                    <li><a href="#get-single-element-contents">Get single element contents</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-multiple-element-contents">Get multiple element contents</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#closestclosest">closest#</a>
+                <ul>
+                    <li><a href="#get-closest-matching-parent-for-single-element">Get closest matching parent for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-closest-matching-parent-for-the-set-of-elements">Get closest matching parent for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#findfind">find#</a>
+                <ul>
+                    <li><a href="#find-descendants-in-single-element">Find descendants in single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#find-descendants-in-the-the-set-of-elements">Find descendants in the the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#nextnext">next#</a>
+                <ul>
+                    <li><a href="#get-next-sibling-for-single-element">Get next sibling for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-next-sibling-filtered-by-selector-for-single-element">Get next sibling filtered by selector for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-next-sibling-for-each-element-in-the-set">Get next sibling for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-next-sibling-filtered-by-selector-for-each-element-in-the-set">Get next sibling filtered by selector for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#nextallnextall">nextAll#</a>
+                <ul>
+                    <li><a href="#get-all-following-siblings-for-single-element">Get all following siblings for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-following-siblings-filtered-by-selector-for-single-element">Get all following siblings filtered by selector for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-following-siblings-for-the-set-of-elements">Get all following siblings for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-following-siblings-filtered-by-selector-for-the-set-of-elements">Get all following siblings filtered by selector for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#nextuntilnextuntil">nextUntil#</a>
+                <ul>
+                    <li><a href="#get-all-following-siblings-bounded-by-selector-for-single-element">Get all following siblings bounded by selector for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-following-siblings-bounded-by-selector-for-the-set-of-elements">Get all following siblings bounded by selector for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#prevprev">prev#</a>
+                <ul>
+                    <li><a href="#get-previous-sibling-for-single-element">Get previous sibling for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-previous-sibling-filtered-by-selector-for-single-element">Get previous sibling filtered by selector for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-previous-sibling-for-each-element-in-the-set">Get previous sibling for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-previous-sibling-filtered-by-selector-for-each-element-in-the-set">Get previous sibling filtered by selector for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#prevallprevall">prevAll#</a>
+                <ul>
+                    <li><a href="#get-all-preceding-siblings-for-single-element">Get all preceding siblings for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-preceding-siblings-filtered-by-selector-for-single-element">Get all preceding siblings filtered by selector for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-preceding-siblings-for-the-set-of-elements">Get all preceding siblings for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-preceding-siblings-filtered-by-selector-for-the-set-of-elements">Get all preceding siblings filtered by selector for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#prevuntilprevuntil">prevUntil#</a>
+                <ul>
+                    <li><a href="#get-all-preceding-siblings-bounded-by-selector-for-single-element">Get all preceding siblings bounded by selector for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-preceding-siblings-bounded-by-selector-for-the-set-of-elements">Get all preceding siblings bounded by selector for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#parentparent">parent#</a>
+                <ul>
+                    <li><a href="#get-single-element-parent">Get single element parent</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-single-element-parent-filtered-by-selector">Get single element parent filtered by selector</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-parent-for-each-element-in-the-set">Get parent for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-parent-filtered-by-selector-for-each-element-in-the-set">Get parent filtered by selector for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#parentsparents">parents#</a>
+                <ul>
+                    <li><a href="#get-single-element-ancestors">Get single element ancestors</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-single-element-ancestors-filtered-by-selector">Get single element ancestors filtered by selector</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-ancestors-for-each-element-in-the-set">Get ancestors for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-ancestors-filtered-by-selector-for-each-element-in-the-set">Get ancestors filtered by selector for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#parentsuntilparentsuntil">parentsUntil#</a>
+                <ul>
+                    <li><a href="#get-all-ancestors-bounded-by-selector-for-single-element">Get all ancestors bounded by selector for single element</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-all-ancestors-bounded-by-selector-for-the-set-of-elements">Get all ancestors bounded by selector for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#siblingssiblings">siblings#</a>
+                <ul>
+                    <li><a href="#get-single-element-siblings">Get single element siblings</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-single-element-siblings-filtered-by-selector">Get single element siblings filtered by selector</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-siblings-for-each-element-in-the-set">Get siblings for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#get-siblings-filtered-by-selector-for-each-element-in-the-set">Get siblings filtered by selector for each element in the set</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#filteringfiltering">Filtering#</a>
+        <ul>
+            <li><a href="#eqeq">eq#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#firstfirst">first#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#lastlast">last#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#sliceslice">slice#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#isis">is#</a>
+                <ul>
+                    <li><a href="#check-if-single-element-match">Check if single element match</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#check-if-at-least-one-of-elements-in-the-set-match">Check if at least one of elements in the set match</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#hashas">has#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-es6">Vanilla ES6+</a>
+                - <a href="#vanilla-es5">Vanilla ES5</a></li>
+            <li><a href="#notnot">not#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-es6">Vanilla ES6+</a>
+                - <a href="#vanilla-es5">Vanilla ES5</a></li>
+            <li><a href="#filterfilter">filter#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-es6">Vanilla ES6+</a>
+                - <a href="#vanilla-es5">Vanilla ES5</a></li>
+            <li><a href="#mapmap">map#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-es6">Vanilla ES6+</a>
+                - <a href="#vanilla-es5">Vanilla ES5</a></li>
+        </ul>
+    </li>
+    <li><a href="#style-propertiesstyle-properties">Style properties#</a>
+        <ul>
+            <li><a href="#csscss">css#</a>
+                <ul>
+                    <li><a href="#get-css-property-value">Get CSS property value</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-single-element-css-property-value">Set single element CSS property value</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-css-property-value-for-the-set-of-elements">Set CSS property value for the set of elements</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-es6">Vanilla ES6+</a></li>
+                            <li><a href="#vanilla-es5">Vanilla ES5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#widthwidth">width#</a>
+                <ul>
+                    <li><a href="#get-element-width">Get element width</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-width">Set element width</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#heightheight">height#</a>
+                <ul>
+                    <li><a href="#get-element-height">Get element height</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-height">Set element height</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#innerwidthinnerwidth">innerWidth#</a>
+                <ul>
+                    <li><a href="#get-element-inner-width">Get element inner width</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-inner-width">Set element inner width</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#innerheightinnerheight">innerHeight#</a>
+                <ul>
+                    <li><a href="#get-element-inner-height">Get element inner height</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-inner-height">Set element inner height</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#outerwidthouterwidth">outerWidth#</a>
+                <ul>
+                    <li><a href="#get-element-outer-width">Get element outer width</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-outer-width">Set element outer width</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#outerheightouterheight">outerHeight#</a>
+                <ul>
+                    <li><a href="#get-element-outer-height">Get element outer height</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-outer-height">Set element outer height</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#scrolltopscrolltop">scrollTop#</a>
+                <ul>
+                    <li><a href="#get-element-vertical-scroll-position">Get element vertical scroll position</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-vertical-scroll-position">Set element vertical scroll position</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#scrollleftscrollleft">scrollLeft#</a>
+                <ul>
+                    <li><a href="#get-element-horizontal-scroll-position">Get element horizontal scroll position</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-horizontal-scroll-position">Set element horizontal scroll position</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#positionposition">position#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#offsetoffset">offset#</a>
+                <ul>
+                    <li><a href="#get-element-offset">Get element offset</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#set-element-offset">Set element offset</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js---fixed-position">Vanilla JS - fixed position</a></li>
+                            <li><a href="#vanilla-js---absolute-or-relative-position">Vanilla JS - absolute or relative position</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#eventsevents">Events#</a>
+        <ul>
+            <li><a href="#onon">on#</a>
+                <ul>
+                    <li><a href="#attach-an-event-handler">Attach an event handler</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#attach-single-handler-to-multiple-events">Attach single handler to multiple events</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#delegate-event">Delegate event</a>
+                        <ul>
+                            <li><a href="#jquery">jQuery</a></li>
+                            <li><a href="#vanilla-js">Vanilla JS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#offoff">off#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#oneone">one#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+            <li><a href="#triggertrigger">trigger#</a>
+                - <a href="#jquery">jQuery</a>
+                - <a href="#vanilla-js">Vanilla JS</a></li>
+        </ul>
+    </li>
+</ul>
+<h1>Prerequisities<a href="#prerequisities">#</a></h1>
+<p>All examples are written with the upcomming DOM4 standard in mind. To make things work, add <a href="https://github.com/WebReflection/dom4#dom4">this polyfill</a> to the page and you are ready:</p>
+<pre><code class="language-html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/dom4/1.7.0/dom4.js&quot;&gt;&lt;/script&gt;
+
+</code></pre>
+<p>Once older browsers vanishes, you can simply drop polyfill while keeping your codes unchanged as they will work natively.</p>
+<h1>Essentials<a href="#essentials">#</a></h1>
+<h2>jQuery function<a href="#jquery-function">#</a></h2>
+<p>Return a collection of matched elements either found in the DOM based on passed argument(s) or created by passing an HTML string, or register a callback to call when the DOM is fully loaded.</p>
+<h3>Get element collection</h3>
+<h4>jQuery- <a href="#prerequisities">Prerequisities#</a></h4>
+<pre><code class="language-js">var elements = $('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var elements = document.querySelectorAll('div');
+
+</code></pre>
+<p>All examples are written assuming that the element collections are true arrays. Note that document.querySelectorAll returns <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">NodeList</a>,
+    which is a fake array. Either use document.querySelectorAll everywhere or convert all NodeLists to arrays(Array.from, [].slice.call, ...).</p>
+<h3>Get element collection in the specific container</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var elements = $('div', container);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var elements = container.querySelectorAll('div');
+
+</code></pre>
+<h3>Create a new element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var element = $('&lt;div&gt;');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var element = document.createElement('div');
+
+</code></pre>
+<h4>jQuery</h4>
+<pre><code class="language-js">var element = $('&lt;div class=&quot;container&quot;&gt;hola&lt;/div&gt;');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var createElement = htmlString =&gt; {
+    var element = document.createElement('div');
+    element.innerHTML = htmlString;
+    return element.firstChild
+}
+var element = createElement('&lt;div class=&quot;container&quot;&gt;hola&lt;/div&gt;');
+
+
+</code></pre>
+<h3>Specify a function to execute when the DOM is fully loaded</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">$(function() {
+    // ..
+})
+// o
+$(document).ready(callback)
+// o
+$(document).on('ready', callback)
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">document.addEventListener('DOMContentLoaded', function() {
+    // ...
+});
+
+</code></pre>
+<h2>each<a href="#each">#</a></h2>
+<p>Iterate over a jQuery object, executing a function for each matched element.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">let elements = $('span');
+elements.on('click', console.log);
+elements.each(function() {
+    this.doSomething();
+});
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">
+let elements = document.querySelectorAll('span');
+
+for (var element of elements)
+    element.addEventListener('click', console.log)
+    element.doSomething();
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.doSomething();
+});
+
+</code></pre>
+<h4>Anywhere - large collections</h4>
+<pre><code class="language-js">for (var id = 0; id &lt; elements.length; id++)
+    elements[id].doSomething();
+
+</code></pre>
+<p>Using <code>each</code>, <code>for-of</code> or <code>forEach</code> brings a cleaner code, but at the same time it can have a <strong>big</strong> impact on overall performance. In the case you
+    are manipulating large DOM collections(tens of thousands of elements and over), you should stick with the plain old <code>for</code> and <code>while</code> loops.</p>
+<h1>General attributes<a href="#general-attributes">#</a></h1>
+<p>These methods get and set DOM attributes of elements</p>
+<h2>attr<a href="#attr">#</a></h2>
+<p>Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element.</p>
+<h3>Set attribute to a single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.attr('foo', 'bar');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.setAttribute('foo', 'bar');
+
+</code></pre>
+<h3>Set attribute to the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.attr('foo', 'bar');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(el =&gt; el.setAttribute('foo', 'bar'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.setAttribute('foo', 'bar');
+});
+
+</code></pre>
+<h3>Get attribute value</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var value = element.attr('foo');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var value = element.getAttribute('foo');
+
+</code></pre>
+<h3>Get plain object containing all element attributes as a <code>name: value</code> pairs</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var attributes = element.attr();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var attributes = {};
+for (var {name, value} of [...element.attributes]) {
+    attributes[name]
+
+}
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var attributes = {};
+[].forEach.call(element.attributes, function(attr) {
+    attributes[attr.name] = attr.value;
+});
+
+</code></pre>
+<p>Element attributes is a <a href="http://www.w3schools.com/dom/dom_namednodemap.asp">NamedNodeMap</a>, which is an array-like object, so we can't call array manipulation methods directly.</p>
+<h2>removeAttr<a href="#removeattr">#</a></h2>
+<p>Remove an attribute from each element in the set of matched elements.</p>
+<h3>Remove attribute from a single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.removeAttr('foo');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.removeAttribute('foo');
+
+</code></pre>
+<h3>Remove attribute from the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.removeAttr('foo');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.removeAttribute('foo'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.removeAttribute('foo');
+});
+
+</code></pre>
+<h2>val<a href="#val">#</a></h2>
+<p>Get the current value of the first element in the set of matched elements or set the value of every matched element.</p>
+<h3>Get element value</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var value = element.val();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var value = element.value;
+
+</code></pre>
+<h3>Set value to a single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.val('foo');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.value = 'foo';
+
+</code></pre>
+<h3>Set value to the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.val('foo');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.value = 'foo');
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.value = 'foo';
+});
+
+</code></pre>
+<h1>Class attribute<a href="#class-attribute">#</a></h1>
+<p>These methods inspect and manipulate the CSS classes assigned to elements.</p>
+<h2>addClass<a href="#addclass">#</a></h2>
+<p>Adds the specified class(es) to each element in the set of matched elements.</p>
+<h3>Add single class</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.addClass('foo');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.classList.add('foo');
+
+</code></pre>
+<h3>Add multiple classes</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.addClass('a b c');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.classList.add('a', 'b', 'c');
+
+</code></pre>
+<h3>Add class to the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.addClass('foo');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.classList.add('foo'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.classList.add('foo');
+});
+
+</code></pre>
+<h2>removeClass<a href="#removeclass">#</a></h2>
+<p>Remove a single class, multiple classes, or all classes from each element in the set of matched elements.</p>
+<h3>Remove single class</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.removeClass('foo');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.classList.remove('foo');
+
+</code></pre>
+<h3>Remove multiple classes</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.removeClass('a b c');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.classList.remove('a', 'b', 'c');
+
+</code></pre>
+<h3>Remove class from the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.removeClass('foo');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.classList.remove('foo'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.classList.remove('foo');
+});
+
+</code></pre>
+<h2>toggleClass<a href="#toggleclass">#</a></h2>
+<p>Add or remove one or more classes from each element in the set of matched elements, depending on either the class’s presence or the value of the state argument.</p>
+<h3>Toggle class</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.toggleClass('foo');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.classList.toggle('foo');
+
+</code></pre>
+<h3>Conditionally toggle class</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.toggleClass('foo', true);
+element.toggleClass('foo', false);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.classList.toggle('foo', true);
+element.classList.toggle('foo', false);
+
+</code></pre>
+<h3>Toggle class on the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.toggleClass('foo');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.classList.toggle('foo'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.classList.toggle('foo');
+});
+
+</code></pre>
+<h2>hasClass<a href="#hasclass">#</a></h2>
+<p>Determine whether any of the matched elements are assigned the given class.</p>
+<h3>Check if single element has certain class</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var has = element.hasClass('foo');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var has = element.classList.contains('foo');
+
+</code></pre>
+<h3>Check if at least one of elements in the set has certain class</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var has = elements.hasClass('foo');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var has = elements.some(x =&gt; x.classList.contains('foo'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var has = elements.some(function(element) {
+    return element.classList.contains('foo');
+});
+
+</code></pre>
+<h1>Insertion inside<a href="#insertion-inside">#</a></h1>
+<p>These methods allow us to insert new content inside an existing element.</p>
+<h2>append<a href="#append">#</a></h2>
+<p>Insert content, specified by the parameter, to the end of each element in the set of matched elements.</p>
+<h3>Append element to single target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">target.append(element);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.append(element);
+
+</code></pre>
+<h3>Append element to the set of targets</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">targets.append(element);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">for (var target of targets)
+    target.append(element.cloneNode(true));
+element.remove();
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">targets.forEach(function(target) {
+    target.append(element.cloneNode(true));
+});
+element.remove();
+
+</code></pre>
+<p>Element is removed before insertion. So if we want to emulate jQuery behavior(insert the same element multiple times), we must clone it before every insertion and finally remove the original
+    element.</p>
+<h2>appendTo<a href="#appendto">#</a></h2>
+<p>Insert every element in the set of matched elements to the end of the target.</p>
+<h3>Append single element to target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.appendTo(target);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.append(element);
+
+</code></pre>
+<h3>Append the set of elements to target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.appendTo(target);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; target.append(x));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    target.append(element);
+});
+
+</code></pre>
+<h2>prepend<a href="#prepend">#</a></h2>
+<p>Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.</p>
+<h3>Prepend element to single target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">target.prepend(element);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.prepend(element);
+
+</code></pre>
+<h3>Prepend element to the set of targets</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">targets.prepend(element);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">for (var target of targets)
+    target.prepend(element.cloneNode(true));
+element.remove();
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">targets.forEach(function(target) {
+    target.prepend(element.cloneNode(true));
+});
+element.remove();
+
+</code></pre>
+<p>Element is removed before insertion. So if we want to emulate jQuery behavior(insert the same element multiple times), we must clone it before every insertion and finally remove the original
+    element.</p>
+<h2>prependTo<a href="#prependto">#</a></h2>
+<p>Insert every element in the set of matched elements to the beginning of the target.</p>
+<h3>Prepend single element to target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.prependTo(target);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.prepend(element);
+
+</code></pre>
+<h3>Prepend the set of elements to target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.prependTo(target);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; target.prepend(x));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    target.prepend(element);
+});
+
+</code></pre>
+<h2>html<a href="#html">#</a></h2>
+<p>Get the HTML contents of the first element in the set of matched elements or set the HTML contents of every matched element.</p>
+<h3>Get element HTML</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var html = element.html();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var html = element.innerHTML;
+
+</code></pre>
+<h3>Set element HTML</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.html('&lt;p&gt;foo&lt;/p&gt;');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.innerHTML = '&lt;p&gt;foo&lt;/p&gt;';
+
+</code></pre>
+<h3>Set HTML to the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.html('&lt;p&gt;foo&lt;/p&gt;');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.innerHTML = '&lt;p&gt;foo&lt;/p&gt;');
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.innerHTML = '&lt;p&gt;foo&lt;/p&gt;';
+});
+
+</code></pre>
+<h2>text<a href="#text">#</a></h2>
+<p>Get the combined text contents of each element in the set of matched elements, including their descendants, or set the text contents of the matched elements.</p>
+<h3>Get element text</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var text = element.text();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var text = element.textContent;
+
+</code></pre>
+<h3>Get text from the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var text = elements.text();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var text = elements.map(x =&gt; x.textContent).join('');
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var text = elements.map(function(element) {
+    return element.textContent;
+}).join('');
+
+</code></pre>
+<h3>Set element text</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.text('foo');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.textContent = 'foo';
+
+</code></pre>
+<h3>Set text to the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.text('foo');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.textContent = 'foo');
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.textContent = 'foo';
+});
+
+</code></pre>
+<h1>Insertion outside<a href="#insertion-outside">#</a></h1>
+<p>These methods allow us to insert new content outside an existing element.</p>
+<h2>before<a href="#before">#</a></h2>
+<p>Insert content, specified by the parameter, before each element in the set of matched elements.</p>
+<h3>Insert element before single target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">target.before(element);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.before(element);
+
+</code></pre>
+<h3>Insert element before the set of targets</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">targets.before(element);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">for (var target of targets)
+    target.before(element.cloneNode(true));
+element.remove();
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">targets.forEach(function(target) {
+    target.before(element.cloneNode(true));
+});
+element.remove();
+
+</code></pre>
+<p>Element is removed before insertion. So if we want to emulate jQuery behavior(insert the same element multiple times), we must clone it before every insertion and finally remove the original
+    element.</p>
+<h2>insertBefore<a href="#insertbefore">#</a></h2>
+<p>Insert every element in the set of matched elements before the target.</p>
+<h3>Insert single element before target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.insertBefore(target);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.before(element);
+
+</code></pre>
+<h3>Insert the set of elements before target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.insertBefore(target);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; target.before(x));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    target.before(element);
+});
+
+</code></pre>
+<h2>after<a href="#after">#</a></h2>
+<p>Insert content, specified by the parameter, after each element in the set of matched elements.</p>
+<h3>Insert element after single target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">target.after(element);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.after(element);
+
+</code></pre>
+<h3>Insert element after the set of targets</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">targets.after(element);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">for (var target of targets)
+    target.after(element.cloneNode(true));
+element.remove();
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">targets.forEach(function(target) {
+    target.after(element.cloneNode(true));
+});
+element.remove();
+
+</code></pre>
+<p>Element is removed before insertion. So if we want to emulate jQuery behavior(insert the same element multiple times), we must clone it before every insertion and finally remove the original
+    element.</p>
+<h2>insertAfter<a href="#insertafter">#</a></h2>
+<p>Insert every element in the set of matched elements after the target.</p>
+<h3>Insert single element after target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.insertAfter(target);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.after(element);
+
+</code></pre>
+<h3>Insert the set of elements after the target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.insertAfter(target);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; target.after(x));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    target.after(element);
+});
+
+</code></pre>
+<h1>Insertion around<a href="#insertion-around">#</a></h1>
+<p>These methods allow us to insert new content surrounding existing content.</p>
+<h2>wrap<a href="#wrap">#</a></h2>
+<p>Wrap an HTML structure around each element.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.wrap('&lt;div&gt;');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<p>Quick &amp; dirty way. Destroys all event hooks, etc. Use with caution:</p>
+<pre><code class="language-js">element.outerHTML = '&lt;div&gt;' + element.outerHTML + '&lt;/div&gt;';
+
+</code></pre>
+<p>Safe approach:</p>
+<pre><code class="language-js">var wrapper = document.createElement('div');
+element.before(wrapper);
+wrapper.append(element);
+
+</code></pre>
+<h2>wrapAll<a href="#wrapall">#</a></h2>
+<p>Wrap an HTML structure around all elements in the set.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.wrapAll('&lt;div&gt;');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var wrapper = document.createElement('div');
+elements[0].before(wrapper);
+elements.forEach(x =&gt; wrapper.append(x));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var wrapper = document.createElement('div');
+elements[0].before(wrapper);
+elements.forEach(function(element) {
+    wrapper.append(element);
+});
+
+</code></pre>
+<h2>wrapInner<a href="#wrapinner">#</a></h2>
+<p>Wrap an HTML structure around the content of each element.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.wrapInner('&lt;div&gt;');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<p>Quick &amp; dirty way. Destroys all event hooks, etc. Use with caution:</p>
+<pre><code class="language-js">element.innerHTML = '&lt;div&gt;' + element.innerHTML + '&lt;/div&gt;';
+
+</code></pre>
+<p>Safe approach:</p>
+<pre><code class="language-js">var wrapper = document.createElement('div');
+while (element.firstChild)
+    wrapper.append(element.firstChild);
+element.append(wrapper);
+
+</code></pre>
+<h2>unwrap<a href="#unwrap">#</a></h2>
+<p>Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.unwrap();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<p>Quick &amp; dirty way. Destroys all event hooks, etc. Use with caution:</p>
+<pre><code class="language-js">element.parentElement.outerHTML = element.parentElement.innerHTML;
+
+</code></pre>
+<p>Safe approach:</p>
+<pre><code class="language-js">var wrapper = element.parentElement;
+while (wrapper.firstChild)
+    wrapper.before(wrapper.firstChild);
+wrapper.remove();
+
+</code></pre>
+<h1>Removal<a href="#removal">#</a></h1>
+<p>These methods allow us to delete elements from the DOM.</p>
+<h2>detach<a href="#detach">#</a></h2>
+<p>Detach the set of matched elements from the DOM while preserving all the data and events.</p>
+<h3>Detach single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.detach();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.remove();
+
+</code></pre>
+<h3>Detach the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.detach();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.remove());
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.remove();
+});
+
+</code></pre>
+<h2>remove<a href="#remove">#</a></h2>
+<p>Remove the set of matched elements from the DOM while <strong>not preserving</strong> any associated data or events.</p>
+<h3>Remove single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.remove();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code>// No equivalent
+
+</code></pre>
+<h3>Remove the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.remove();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code>// No equivalent
+
+</code></pre>
+<h2>empty<a href="#empty">#</a></h2>
+<p>Remove all child nodes of the set of matched elements from the DOM.</p>
+<h3>Empty single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.empty();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.innerHTML = '';
+
+</code></pre>
+<h3>Empty the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.empty();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.innerHTML = '');
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.innerHTML = '';
+});
+
+</code></pre>
+<h1>Replacement<a href="#replacement">#</a></h1>
+<p>These methods are used to remove content from the DOM and replace it with new content.</p>
+<h2>replaceWith<a href="#replacewith">#</a></h2>
+<p>Replace each element in the set of matched elements with the provided new content and return the set of elements that was removed.</p>
+<h3>Replace single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">target.replaceWith(element);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.replaceWith(element);
+
+</code></pre>
+<h3>Replace each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">targets.replaceWith(element);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">for (var target of targets)
+    target.replaceWith(element.cloneNode(true));
+element.remove();
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">targets.forEach(function(target) {
+    target.replaceWith(element.cloneNode(true));
+});
+element.remove();
+
+</code></pre>
+<p>Element is removed before replacement. So if we want to emulate jQuery behavior(replace with the same element multiple times), we must clone it before every replacement and finally remove the
+    original element.</p>
+<h2>replaceAll<a href="#replaceall">#</a></h2>
+<p>Replace each target element with the set of matched elements.</p>
+<h3>Replace a single target</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.replaceAll(target);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">target.replaceWith(element);
+
+</code></pre>
+<h3>Replace the set of targets</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.replaceAll(targets);
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">for (var target of targets)
+    target.replaceWith(element.cloneNode(true));
+element.remove();
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">targets.forEach(function(target) {
+    target.replaceWith(element.cloneNode(true));
+});
+element.remove();
+
+</code></pre>
+<p>Element is removed before replacement. So if we want to emulate jQuery behavior(replace with the same element multiple times), we must clone it before every replacement and finally remove the
+    original element.</p>
+<h1>Tree traversal<a href="#tree-traversal">#</a></h1>
+<h2>children<a href="#children">#</a></h2>
+<p>Get the children of each element in the set of matched elements, optionally filtered by a selector.</p>
+<h3>Get single element children</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var children = element.children();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var children = element.children;
+
+</code></pre>
+<h3>Get single element children filtered by selector</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var children = element.children('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var children = element.querySelectorAll('&gt; div');
+
+</code></pre>
+<h3>Get children from the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var children = elements.children();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var children = elements.map(x =&gt; [...x.children]);
+children = [].concat(...children);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var children = elements.reduce(function(result, element) {
+    return result.concat([].slice.call(element.children));
+}, []);
+
+</code></pre>
+<p>Element children is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection">HTMLCollection</a>, which is an array-like object, so we can't call array manipulation methods
+    directly.</p>
+<h3>Get children filtered by selector from the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var children = elements.children('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var children = elements.map(x =&gt; x.querySelectorAll('&gt; div'));
+children = [].concat(...children);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var children = elements.reduce(function(result, element) {
+    return result.concat(element.querySelectorAll('&gt; div'));
+}, []);
+
+</code></pre>
+<h2>contents<a href="#contents">#</a></h2>
+<p>Get the children of each element in the set of matched elements, including text and comment nodes.</p>
+<h3>Get single element contents</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var contents = element.contents();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var contents = element.childNodes;
+
+</code></pre>
+<h3>Get multiple element contents</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var contents = elements.contents();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var contents = elements.map(x =&gt; [...x.childNodes]);
+contents = [].concat(...contents);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var contents = elements.reduce(function(result, element) {
+    return result.concat([].slice.call(element.childNodes));
+}, []);
+
+</code></pre>
+<p>Element child nodes is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">NodeList</a>, which is an array-like object, so we can't call array manipulation methods directly.</p>
+<h2>closest<a href="#closest">#</a></h2>
+<p>For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.</p>
+<h3>Get closest matching parent for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var closest = element.closest('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var closest = element.closest('div');
+
+</code></pre>
+<h3>Get closest matching parent for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var closest = elements.closest('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var closest = elements.map(x =&gt; x.closest('div'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var closest = elements.map(function(element) {
+    return element.closest('div');
+});
+
+</code></pre>
+<h2>find<a href="#find">#</a></h2>
+<p>Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.</p>
+<h3>Find descendants in single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var found = element.find('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var found = element.querySelectorAll('div');
+
+</code></pre>
+<h3>Find descendants in the the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var found = elements.find('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var found = elements.map(x =&gt; x.querySelectorAll('div'));
+found = [].concat(...found);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var found = elements.reduce(function(result, element) {
+    return result.concat(element.querySelectorAll('div'));
+}, []);
+
+</code></pre>
+<h2>next<a href="#next">#</a></h2>
+<p>Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.</p>
+<h3>Get next sibling for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = element.next();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var next = element.nextElementSibling;
+
+</code></pre>
+<h3>Get next sibling filtered by selector for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = element.next('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var next = element.query('+ div');
+
+</code></pre>
+<h3>Get next sibling for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = elements.next();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var next = elements
+    .map(x =&gt; x.nextElementSibling)
+    .filter(x =&gt; x);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var next = [];
+elements.forEach(function(element) {
+    if (element.nextElementSibling)
+        next.push(element.nextElementSibling);
+});
+
+</code></pre>
+<h3>Get next sibling filtered by selector for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = elements.next('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var next = elements
+    .map(x =&gt; x.query('+ div'))
+    .filter(x =&gt; x);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var next = [];
+elements.forEach(function(element) {
+    if (element.nextElementSibling &amp;&amp; element.nextElementSibling.matches('div'))
+        next.push(element.nextElementSibling);
+});
+
+</code></pre>
+<h2>nextAll<a href="#nextall">#</a></h2>
+<p>Get all following siblings of each element in the set of matched elements, optionally filtered by a selector.</p>
+<h3>Get all following siblings for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = element.nextAll();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var next = element.querySelectorAll('~ *');
+
+</code></pre>
+<h3>Get all following siblings filtered by selector for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = element.nextAll('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var next = element.querySelectorAll('~ div');
+
+</code></pre>
+<h3>Get all following siblings for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = elements.nextAll();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var next = elements.map(x =&gt; x.querySelectorAll('~ *'));
+next = [].concat(...next);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var next = elements.map(function(element) {
+    return element.querySelectorAll('~ *'));
+});
+next = [].concat.apply([], next);
+
+</code></pre>
+<h3>Get all following siblings filtered by selector for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = elements.nextAll('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var next = elements.map(x =&gt; x.querySelectorAll('~ div'));
+next = [].concat(...next);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var next = elements.map(function(element) {
+    return element.querySelectorAll('~ div'));
+});
+next = [].concat.apply([], next);
+
+</code></pre>
+<h2>nextUntil<a href="#nextuntil">#</a></h2>
+<p>Get all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.</p>
+<h3>Get all following siblings bounded by selector for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = element.nextUntil('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var next = [];
+while (element.nextElementSibling &amp;&amp; !element.nextElementSibling.matches('div'))
+    next.push(element = element.nextElementSibling);
+
+</code></pre>
+<h3>Get all following siblings bounded by selector for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var next = elements.nextUntil('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var next = elements.reduce(function(result, element) {
+    while (element.nextElementSibling &amp;&amp; !element.nextElementSibling.matches('div'))
+        result.push(element = element.nextElementSibling);
+    return result;
+}, []);
+
+</code></pre>
+<h2>prev<a href="#prev">#</a></h2>
+<p>Get the immediately preceding sibling of each element in the set of matched elements, optionally filtered by a selector.</p>
+<h3>Get previous sibling for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = element.prev();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var prev = element.previousElementSibling;
+
+</code></pre>
+<h3>Get previous sibling filtered by selector for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = element.prev('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var prev = element.previousElementSibling;
+prev = prev &amp;&amp; prev.matches('div') ? prev : null;
+
+</code></pre>
+<h3>Get previous sibling for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = elements.prev();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var prev = elements
+    .map(x =&gt; x.previousElementSibling)
+    .filter(x =&gt; x);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var prev = [];
+elements.forEach(function(element) {
+    if (element.previousElementSibling)
+        prev.push(element.previousElementSibling);
+});
+
+</code></pre>
+<h3>Get previous sibling filtered by selector for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = elements.prev('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var prev = elements
+    .map(x =&gt; x.previousElementSibling)
+    .filter(x =&gt; x &amp;&amp; x.matches('div'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var prev = [];
+elements.forEach(function(element) {
+    if (element.previousElementSibling &amp;&amp; element.previousElementSibling.matches('div'))
+        prev.push(sibling);
+});
+
+</code></pre>
+<h2>prevAll<a href="#prevall">#</a></h2>
+<p>Get all preceding siblings of each element in the set of matched elements, optionally filtered by a selector.</p>
+<h3>Get all preceding siblings for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = element.prevAll();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var prev = [];
+while (element.previousElementSibling)
+    prev.push(element = element.previousElementSibling);
+
+</code></pre>
+<h3>Get all preceding siblings filtered by selector for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = element.prevAll('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var prev = [];
+while (element.previousElementSibling &amp;&amp; element.previousElementSibling.matches('div'))
+    prev.push(element = element.previousElementSibling);
+
+</code></pre>
+<h3>Get all preceding siblings for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = elements.prevAll();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var prev = elements.reduce(function(result, element) {
+    while (element.previousElementSibling)
+        result.push(element = element.previousElementSibling);
+    return result;
+}, []);
+
+</code></pre>
+<h3>Get all preceding siblings filtered by selector for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = elements.prevAll('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var prev = elements.reduce(function(result, element) {
+    while (element.previousElementSibling &amp;&amp; element.previousElementSibling.matches('div'))
+        result.push(element = element.previousElementSibling);
+    return result;
+}, []);
+
+</code></pre>
+<h2>prevUntil<a href="#prevuntil">#</a></h2>
+<p>Get all preceding siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object.</p>
+<h3>Get all preceding siblings bounded by selector for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = element.prevUntil('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var prev = [];
+while (element.previousElementSibling &amp;&amp; !element.previousElementSibling.matches('div'))
+    prev.push(element = element.previousElementSibling);
+
+</code></pre>
+<h3>Get all preceding siblings bounded by selector for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var prev = elements.prevUntil('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var prev = elements.reduce(function(result, element) {
+    while (element.previousElementSibling &amp;&amp; !element.previousElementSibling.matches('div'))
+        result.push(element = element.previousElementSibling);
+    return result;
+}, []);
+
+</code></pre>
+<h2>parent<a href="#parent">#</a></h2>
+<p>Get the parent of each element in the current set of matched elements, optionally filtered by a selector.</p>
+<h3>Get single element parent</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parent = element.parent();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var parent = element.parentElement;
+
+</code></pre>
+<h3>Get single element parent filtered by selector</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parent = element.parent('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var parent = element.parentElement;
+parent = parent.matches('div') ? parent : null;
+
+</code></pre>
+<h3>Get parent for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parent = elements.parent();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var parents = elements.map(x =&gt; x.parentElement);
+parents = [...new Set(parents)];
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var parents = [];
+elements.forEach(function(element) {
+    if (parents.indexOf(element.parentElement) == -1)
+        parents.push(element.parentElement);
+});
+
+</code></pre>
+<h3>Get parent filtered by selector for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parent = elements.parent('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var parents = elements
+    .map(x =&gt; x.parentElement)
+    .filter(x =&gt; x.matches('div'));
+parents = [...new Set(parents)];
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var parents = [];
+elements.forEach(function(element) {
+    var parent = element.parentElement;
+    if (parent.matches('div') &amp;&amp; parents.indexOf(parent) == -1)
+        parents.push(parent);
+});
+
+</code></pre>
+<h2>parents<a href="#parents">#</a></h2>
+<p>Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</p>
+<h3>Get single element ancestors</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parents = element.parents();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var parents = [];
+while (element.parentElement)
+    parents.push(element = element.parentElement);
+
+</code></pre>
+<h3>Get single element ancestors filtered by selector</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parents = element.parents('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var parents = [];
+while (element = element.parentElement.closest('div'))
+    parents.push(element);
+
+</code></pre>
+<h3>Get ancestors for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parents = elements.parents();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var parents = elements
+    .map(x =&gt; x.parentElement)
+    .filter(x =&gt; x);
+parents = [...new Set(parents)];
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var parents = [];
+elements.forEach(function(element) {
+    while (element.parentElement &amp;&amp; parents.indexOf(element.parentElement) == -1)
+        parents.push(element = element.parentElement);
+});
+
+</code></pre>
+<h3>Get ancestors filtered by selector for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parents = elements.parents('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var parents = elements
+    .filter(x =&gt; x.parentElement)
+    .map(x =&gt; x.parentElement.closest('div'))
+    .filter(x =&gt; x);
+parents = [...new Set(parents)];
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var parents = [];
+elements.forEach(function(element) {
+    while (element = element.parentElement.closest('div'))
+        if (parents.indexOf(element) == -1)
+            parents.push(element);
+});
+
+</code></pre>
+<h2>parentsUntil<a href="#parentsuntil">#</a></h2>
+<p>Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector, DOM node, or jQuery object.</p>
+<h3>Get all ancestors bounded by selector for single element</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parents = element.parentsUntil('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var parents = [];
+while (element.parentElement &amp;&amp; !element.parentElement.matches('div'))
+    parents.push(element = element.parentElement);
+
+</code></pre>
+<h3>Get all ancestors bounded by selector for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var parents = elements.parentsUntil('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var parents = [];
+for (var element of elements)
+    while (element.parentElement &amp;&amp; !element.parentElement.matches('div') &amp;&amp; parents.indexOf(element.parentElement) == -1)
+        parents.push(element = element.parentElement);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var parents = [];
+elements.forEach(function(element) {
+    while (element.parentElement &amp;&amp; !element.parentElement.matches('div') &amp;&amp; parents.indexOf(element.parentElement) == -1)
+        parents.push(element = element.parentElement);
+});
+
+</code></pre>
+<h2>siblings<a href="#siblings">#</a></h2>
+<p>Get the siblings of each element in the set of matched elements, optionally filtered by a selector.</p>
+<h3>Get single element siblings</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var siblings = element.siblings();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var siblings = Array
+    .from(element.parentElement.children)
+    .filter(x =&gt; x != element);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var siblings = [].slice.call(element.parentElement.children);
+siblings.splice(siblings.indexOf(element), 1);
+
+</code></pre>
+<p>Element children is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection">HTMLCollection</a>, which is an array-like object, so we can't call array manipulation methods
+    directly.</p>
+<h3>Get single element siblings filtered by selector</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var siblings = element.siblings('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var siblings = Array
+    .from(element.parentElement.children)
+    .filter(x =&gt; x != element &amp;&amp; x.matches('div'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var siblings = [].filter.call(element.parentElement.children, function(sibling) {
+    return sibling != element &amp;&amp; sibling.matches('div');
+});
+
+</code></pre>
+<h3>Get siblings for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var siblings = elements.siblings();
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var siblings = [];
+for (var element of elements)
+    for (var sibling of element.parentElement.children)
+        if (siblings.indexOf(sibling) == -1 &amp;&amp; sibling != element)
+            siblings.push(sibling);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var siblings = [];
+elements.forEach(function(element) {
+    [].forEach.call(element.parentElement.children, function(sibling) {
+        if (siblings.indexOf(sibling) == -1 &amp;&amp; sibling != element)
+            siblings.push(sibling);
+    });
+});
+
+</code></pre>
+<h3>Get siblings filtered by selector for each element in the set</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var siblings = elements.siblings('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var siblings = [];
+for (var element of elements)
+    for (var sibling of element.parentElement.children)
+        if (siblings.indexOf(sibling) == -1 &amp;&amp; sibling.matches('div') &amp;&amp; sibling != element)
+            siblings.push(sibling);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var siblings = [];
+elements.forEach(function(element) {
+    [].forEach.call(element.parentElement.children, function(sibling) {
+        if (siblings.indexOf(sibling) == -1 &amp;&amp; sibling.matches('div') &amp;&amp; sibling != element)
+            siblings.push(sibling);
+    });
+});
+
+</code></pre>
+<h1>Filtering<a href="#filtering">#</a></h1>
+<h2>eq<a href="#eq">#</a></h2>
+<p>Reduce the set of matched elements to the one at the specified index.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var element = elements.eq(2);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var element = elements[2];
+
+</code></pre>
+<h2>first<a href="#first">#</a></h2>
+<p>Reduce the set of matched elements to the first in the set.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var element = elements.first();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var element = elements[0];
+
+</code></pre>
+<h2>last<a href="#last">#</a></h2>
+<p>Reduce the set of matched elements to the final one in the set.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var element = elements.last();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var element = elements.slice(-1);
+
+</code></pre>
+<h2>slice<a href="#slice">#</a></h2>
+<p>Reduce the set of matched elements to a subset specified by a range of indices.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var subset = elements.slice(1, 3);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var subset = elements.slice(1, 3);
+
+</code></pre>
+<h2>is<a href="#is">#</a></h2>
+<p>Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments.</p>
+<h3>Check if single element match</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var is = element.is('div');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var is = element.matches('div');
+
+</code></pre>
+<h3>Check if at least one of elements in the set match</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var is = elements.is('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var is = elements.some(x =&gt; x.matches('div'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var is = elements.some(function(element) {
+    return element.matches('div');
+});
+
+</code></pre>
+<h2>has<a href="#has">#</a></h2>
+<p>Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var found = elements.has('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var found = elements.filter(x =&gt; x.query('div'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var found = elements.filter(function(element) {
+    return element.query('div');
+});
+
+</code></pre>
+<h2>not<a href="#not">#</a></h2>
+<p>Remove elements from the set of matched elements.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var found = elements.not('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var found = elements.filter(x =&gt; !x.matches('div'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var found = elements.filter(function(element) {
+    return !element.matches('div');
+});
+
+</code></pre>
+<h2>filter<a href="#filter">#</a></h2>
+<p>Reduce the set of matched elements to those that match the selector or pass the function’s test.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var found = elements.filter('div');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var found = elements.filter(x =&gt; x.matches('div'));
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var found = elements.filter(function(element) {
+    return element.matches('div');
+});
+
+</code></pre>
+<h2>map<a href="#map">#</a></h2>
+<p>Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var result = elements.map(function() {
+    return this.id;
+});
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">var result = elements.map(x =&gt; x.id);
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">var result = elements.map(function(element) {
+    return element.id;
+});
+
+</code></pre>
+<h1>Style properties<a href="#style-properties">#</a></h1>
+<p>These methods get and set CSS-related properties of elements.</p>
+<h2>css<a href="#css">#</a></h2>
+<p>Get the value of a computed style property for the first element in the set of matched elements or set one or more CSS properties for every matched element.</p>
+<h3>Get CSS property value</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var color = element.css('color');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var color = getComputedStyle(element).color;
+
+</code></pre>
+<h3>Set single element CSS property value</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.css('color', 'yellow');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.style.color = 'yellow';
+
+</code></pre>
+<h3>Set CSS property value for the set of elements</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">elements.css('color', 'yellow');
+
+</code></pre>
+<h4>Vanilla ES6+</h4>
+<pre><code class="language-js">elements.forEach(x =&gt; x.style.color = 'yellow');
+
+</code></pre>
+<h4>Vanilla ES5</h4>
+<pre><code class="language-js">elements.forEach(function(element) {
+    element.style.color = 'yellow';
+});
+
+</code></pre>
+<h2>width<a href="#width">#</a></h2>
+<p>Get the current computed width for the first element in the set of matched elements or set the width of every matched element.</p>
+<h3>Get element width</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var width = element.width();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var width = parseInt(getComputedStyle(element).width);
+
+</code></pre>
+<h3>Set element width</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.width(500);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.style.width = '500px';
+
+</code></pre>
+<h2>height<a href="#height">#</a></h2>
+<p>Get the current computed height for the first element in the set of matched elements or set the height of every matched element.</p>
+<h3>Get element height</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var height = element.height();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var height = parseInt(getComputedStyle(element).height);
+
+</code></pre>
+<h3>Set element height</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.height(500);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.style.height = '500px';
+
+</code></pre>
+<h2>innerWidth<a href="#innerwidth">#</a></h2>
+<p>Get the current computed inner width (including padding but not border) for the first element in the set of matched elements or set the inner width of every matched element.</p>
+<h3>Get element inner width</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var width = element.innerWidth();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var width = element.clientWidth;
+
+</code></pre>
+<h3>Set element inner width</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.innerWidth(500);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var width = parseInt(getComputedStyle(element).width);
+var space = element.clientWidth - width;
+element.style.width = (500 - space) + 'px';
+
+</code></pre>
+<h2>innerHeight<a href="#innerheight">#</a></h2>
+<p>Get the current computed inner height (including padding but not border) for the first element in the set of matched elements or set the inner height of every matched element.</p>
+<h3>Get element inner height</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var height = element.innerHeight();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var height = element.clientHeight;
+
+</code></pre>
+<h3>Set element inner height</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.innerHeight(500);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var height = parseInt(getComputedStyle(element).height);
+var space = element.clientHeight - height;
+element.style.height = (500 - space) + 'px';
+
+</code></pre>
+<h2>outerWidth<a href="#outerwidth">#</a></h2>
+<p>Get the current computed width for the first element in the set of matched elements, including padding and border.</p>
+<h3>Get element outer width</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var width = element.outerWidth();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var width = element.offsetWidth;
+
+</code></pre>
+<h3>Set element outer width</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.outerWidth(500);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var width = parseInt(getComputedStyle(element).width);
+var space = element.offsetWidth - width;
+element.style.width = (500 - space) + 'px';
+
+</code></pre>
+<h2>outerHeight<a href="#outerheight">#</a></h2>
+<p>Get the current computed height for the first element in the set of matched elements, including padding and border.</p>
+<h3>Get element outer height</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var height = element.outerHeight();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var height = element.offsetHeight;
+
+</code></pre>
+<h3>Set element outer height</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.outerHeight(500);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var height = parseInt(getComputedStyle(element).height);
+var space = element.offsetHeight - height;
+element.style.height = (500 - space) + 'px';
+
+</code></pre>
+<h2>scrollTop<a href="#scrolltop">#</a></h2>
+<p>Get the current vertical position of the scroll bar for the first element in the set of matched elements or set the vertical position of the scroll bar for every matched element.</p>
+<h3>Get element vertical scroll position</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var top = element.scrollTop();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var top = element.scrollTop;
+
+</code></pre>
+<h3>Set element vertical scroll position</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.scrollTop(100);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.scrollTop = 100;
+
+</code></pre>
+<h2>scrollLeft<a href="#scrollleft">#</a></h2>
+<p>Get the current horizontal position of the scroll bar for the first element in the set of matched elements or set the horizontal position of the scroll bar for every matched element.</p>
+<h3>Get element horizontal scroll position</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var left = element.scrollLeft();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var left = element.scrollLeft;
+
+</code></pre>
+<h3>Set element horizontal scroll position</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.scrollLeft(100);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.scrollLeft = 100;
+
+</code></pre>
+<h2>position<a href="#position">#</a></h2>
+<p>Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">var position = element.position();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var position = {
+    top: element.offsetTop,
+    left: element.offsetLeft
+};
+
+</code></pre>
+<h2>offset<a href="#offset">#</a></h2>
+<p>Get the current coordinates of the first element, or set the coordinates of every element, in the set of matched elements, relative to the document.</p>
+<h3>Get element offset</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">var offset = element.offset();
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">var rect = element.getBoundingClientRect();
+var offset = {
+    top: rect.top + document.body.scrollTop,
+    left: rect.left + document.body.scrollLeft
+};
+
+</code></pre>
+<h3>Set element offset</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.offset({
+    top: 100,
+    left: 100
+});
+
+</code></pre>
+<h4>Vanilla JS - fixed position</h4>
+<pre><code class="language-js">element.style.top = '100px';
+element.style.left = '100px';
+
+</code></pre>
+<h4>Vanilla JS - absolute or relative position</h4>
+<pre><code class="language-js">var rect = element.parentElement.getBoundingClientRect();
+element.style.top = (100 - rect.top - document.body.scrollTop) + 'px';
+element.style.left = (100 - rect.left - document.body.scrollLeft) + 'px';
+
+</code></pre>
+<h1>Events<a href="#events">#</a></h1>
+<p>These methods are used to register behaviors to take effect when the user interacts with the browser, and to further manipulate those registered behaviors.</p>
+<h2>on<a href="#on">#</a></h2>
+<p>Attach an event handler function for one or more events to the selected elements.</p>
+<h3>Attach an event handler</h3>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.on('click', function() {
+    alert('Hello!');
+});
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.addEventListener('click', function() {
+    alert('Hello!');
+});
+
+</code></pre>
+<h3>Attach single handler to multiple events</h3>
+<h4>jQuery</h4>
+<pre><code>$(element).on('mousedown mouseup', function(event) {
+    console.log(event.type);
+});
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code>['mousedown', 'mouseup'].forEach(function(type) {
+    element.addEventListener(type, function(event) {
+        console.log(event.type);
+    });
+});
+
+</code></pre>
+<h3>Delegate event</h3>
+<p>Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.on('click', '.hello', function() {
+    alert('Hello!');
+});
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.addEventListener('click', function(event) {
+    if (event.target.matches('.hello')) {
+        alert('Hello!');
+        event.stopPropagation();
+    }
+});
+
+</code></pre>
+<h2>off<a href="#off">#</a></h2>
+<p>Remove an event handler.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.off('click', handler);
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.removeEventListener('click', handler);
+
+</code></pre>
+<h2>one<a href="#one">#</a></h2>
+<p>Attach a handler to an event for the elements. The handler is executed at most once per element.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.one('click', function() {
+    alert('Hello!');
+});
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.addEventListener('click', function(event) {
+    alert('Hello!');
+    event.target.removeEventListener(event.type, arguments.callee);
+});
+
+</code></pre>
+<h2>trigger<a href="#trigger">#</a></h2>
+<p>Execute all handlers attached to the matched elements for the given event type.</p>
+<h4>jQuery</h4>
+<pre><code class="language-js">element.trigger('click');
+
+</code></pre>
+<h4>Vanilla JS</h4>
+<pre><code class="language-js">element.dispatchEvent(new Event('click'));
+
+</code></pre>
+
+
+
+    </body>
+    </html>

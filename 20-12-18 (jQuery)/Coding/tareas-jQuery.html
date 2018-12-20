@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tareas-jQuery</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+      }
+      header {
+        background: tomato;
+        height: 20vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .lista-tareas {
+        background: grey;
+        flex: 1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 2em;
+      }
+      .tarea {
+        background: white;
+        padding: 2em;
+        width: 20vw;
+      }
+      .tarea .texto {
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+      .tarea.completada {
+        text-decoration: line-through;
+        color: grey;
+        opacity: 0.5;
+      }
+    </style>
+    <script>
+      $(document).ready(function() {
+        let addNewTask = ev => {
+          if (ev.keyCode === 13 || ev.type === 'click') {
+            let newTaskText = $('header input')
+              .val()
+              .trim();
+
+            if (newTaskText !== '') {
+              $('header input').val('');
+
+              let newNodeTask = $(`
+                <div class="tarea">
+                  <div class="texto">${newTaskText}</div>
+                  <button>Borrar</button>
+                  <label>
+                    Completar
+                    <input type="checkbox" class="completar" id="">
+                  </label>
+                </div>
+              `);
+
+              $('.lista-tareas').append(newNodeTask);
+              // suscripción al evento click
+              $('button', newNodeTask).on('click', removeTask);
+              $('.completar', newNodeTask).on('click', markAsCompleted);
+            }
+          }
+        };
+
+        let removeTask = ev => {
+          $(ev.target)
+            .parent()
+            // .detach();
+            .fadeOut();
+        };
+
+        let markAsCompleted = ev => {
+          $(ev.target)
+            .parent()
+            .parent()
+            .toggleClass('completada');
+        };
+        $('header input').on('keyup', addNewTask);
+        $('header button').on('click', addNewTask);
+
+        $('.tarea button').on('click', removeTask);
+
+        // evento delegado
+        // $('.lista-tareas').on('click', '.tarea button', removeTask);
+
+        $('.tarea .completar').on('click', markAsCompleted);
+      });
+    </script>
+  </head>
+  <body>
+    <header><input type="text" placeholder="añade nueva tarea" /> <button>Añadir</button></header>
+    <section class="lista-tareas"></section>
+  </body>
+</html>
