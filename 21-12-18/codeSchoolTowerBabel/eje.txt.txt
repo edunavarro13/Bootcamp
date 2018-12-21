@@ -1,0 +1,2 @@
+Instalar: npm install -g tower-of-babel
+Ejecutar: tower-of-babel

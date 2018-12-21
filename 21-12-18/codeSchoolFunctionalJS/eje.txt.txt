@@ -1,0 +1,2 @@
+Instalar: npm install -g functional-javascript-workshop
+Ejecutar: functional-javascript-workshop

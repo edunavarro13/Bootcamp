@@ -1,0 +1,2 @@
+Instalar: npm install -g count-to-6
+Ejecutar: count-to-6
