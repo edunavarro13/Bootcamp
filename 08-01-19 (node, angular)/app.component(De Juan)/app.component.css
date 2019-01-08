@@ -1,0 +1,11 @@
+.truthy {
+  border-bottom: solid green 1px;
+}
+
+.falsy {
+  border-bottom: solid red 1px;
+}
+
+.ngSwitch {
+  font-size: 3em;
+}

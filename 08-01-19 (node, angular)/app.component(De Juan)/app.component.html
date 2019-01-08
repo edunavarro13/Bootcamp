@@ -1,0 +1,36 @@
+<div (click)="handleClick()">
+  <h1>ngIf demo</h1>
+  <div class="{{ showDiv ? 'truthy' : 'falsy' }} ">estado de la variable showDiv: {{ showDiv }}</div>
+  <div *ngIf="showDiv">showDiv es truthy</div>
+  <div *ngIf="!showDiv">showDiv es falsy</div>
+</div>
+
+<div class="emojis">
+  <h1>ngFor demo</h1>
+  <span *ngFor="let emoji of emojis">{{ emoji.text }} => {{ emoji.icon }}</span>
+</div>
+
+<div>
+  <h1>forms demo</h1>
+  <input (keyup)="updateText($event)" />
+  <p>{{ text }}</p>
+</div>
+
+<div>
+  <h1>ngSwitch demo</h1>
+  <div [ngSwitch]="text" class="ngSwitch">
+    <div *ngSwitchCase="'happy'">😊</div>
+    <div *ngSwitchCase="'sad'">😅</div>
+    <div *ngSwitchDefault>😀</div>
+  </div>
+</div>
+
+<div>
+  <h1>ngSwitch con ngFor</h1>
+  <div [ngSwitch]="text" class="ngSwitch">
+    <div *ngFor="let emoji of emojis">
+      <div *ngSwitchCase="emoji.text">{{ emoji.icon }}</div>
+    </div>
+    <div *ngSwitchDefault>😀</div>
+  </div>
+</div>

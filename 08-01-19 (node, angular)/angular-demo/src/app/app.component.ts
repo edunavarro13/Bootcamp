@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-demo';
-  nombres = ["Edu", "Juan", "Paco", "Lou"];
-  valor = true;
+  title: string = 'angular-demo';
+  nombres: Array<string> = ["Edu", "Juan", "Paco", "Lou"];
+  valor: boolean = true;
   esMayor4 = (num: Number) => {
     return num > 4;
   };
@@ -18,5 +18,8 @@ export class AppComponent {
     } else {
       this.valor = true;
     }
+  };
+  noVacio = (text: string) => {
+    return text != undefined && text.length > 0;
   }
 }
