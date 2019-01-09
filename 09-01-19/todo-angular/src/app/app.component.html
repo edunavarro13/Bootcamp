@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<header style="text-align:center">
+<header>
   <h1>
     {{ title }}
   </h1>
@@ -7,13 +7,15 @@
 <div class="divAzul">
   <h2>Crear tareas: </h2>
   <input type="text" (keyup)="handleKeyup($event)" [(ngModel)]="nuevaTarea" placeholder="Nombre de la tarea">
-  <input type="button" value="Crear tarea" (click)="agregarTarea()">
+  <input type="button" class="btn btn-primary" value="Crear tarea" (click)="agregarTarea()">
   <p class="error" *ngIf="verError">El nombre no puede estar vacio.</p>
 </div>
 
-<div class="todo">
-  <div *ngFor="let tarea of tareas" class="tarea">
-    <app-card-tarea [nombreTarea]="tarea" (borrarNombre)="borrarElemento($event)"></app-card-tarea>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let tarea of tareas" class="col">
+      <app-card-tarea [nombreTarea]="tarea" (borrarNombre)="borrarElemento($event)"></app-card-tarea>
+    </div>
   </div>
 </div>
 

@@ -1,4 +1,10 @@
-<div class="tarea">
-  <h3>Id: {{nombreTarea.id}} Nombre: {{nombreTarea.nombre}}</h3>
-  <input type="button" value="Borrar tarea" (click)="borrarTarea()">
-</div>
+<div class="card text-center margen-tarea">
+    <div class="card-header">
+        Id: {{nombreTarea.id}} 
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Nombre: {{nombreTarea.nombre}}</h5>
+      <p class="card-text">Descripcion.</p>
+      <input class="btn btn-primary" type="button" value="Borrar tarea" (click)="borrarTarea()">
+    </div>
+  </div>
