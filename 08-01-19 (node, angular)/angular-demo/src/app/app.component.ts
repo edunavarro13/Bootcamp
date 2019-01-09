@@ -9,6 +9,7 @@ export class AppComponent {
   title: string = 'angular-demo';
   nombres: Array<string> = ["Edu", "Juan", "Paco", "Lou"];
   valor: boolean = true;
+  texto: string;
   esMayor4 = (num: Number) => {
     return num > 4;
   };
