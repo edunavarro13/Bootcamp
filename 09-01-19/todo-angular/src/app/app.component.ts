@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Practica todo-angular';
   tareas: Array<object> = [];
+  tareasAux: Array<object> = [];
   nuevaTarea = '';
+  filtrarTarea = '';
   verError: boolean = false;
   handleKeyup(ev) {
     // Le ha dado enter
@@ -33,6 +35,7 @@ export class AppComponent {
       
       this.nuevaTarea = '';
       this.verError = false;
+      this.tareasAux = this.tareas;
     }
     else {
       this.verError = true;
@@ -41,5 +44,19 @@ export class AppComponent {
   borrarElemento(ev: object) {
     let pos = this.tareas.indexOf(ev);
     this.tareas.splice(pos, 1);
+    this.filtrar(undefined);
+  }
+  filtrar(ev) {
+    // Le ha dado enter
+    if(ev !== undefined && ev.keyCode === 13) {
+      this.filtrarTarea = '';
+      this.tareasAux = this.tareas;
+      console.log(this.tareas);
+      console.log(this.tareasAux);
+    } else {
+      this.tareasAux = this.tareas.filter( (elem) => {
+        return elem["nombre"].match(this.filtrarTarea) !== null;
+      });
+    }
   }
 }

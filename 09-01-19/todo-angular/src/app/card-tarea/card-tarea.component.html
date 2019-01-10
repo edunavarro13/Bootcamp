@@ -1,10 +1,13 @@
 <div class="card text-center margen-tarea">
-    <div class="card-header">
+    <div class="card-header {{ cabeceraActiva }}">
         Id: {{nombreTarea.id}} 
     </div>
-    <div class="card-body">
+    <div class="card-body {{ tarjetaActiva }}">
       <h5 class="card-title">Nombre: {{nombreTarea.nombre}}</h5>
-      <p class="card-text">Descripcion.</p>
-      <input class="btn btn-primary" type="button" value="Borrar tarea" (click)="borrarTarea()">
+      <p class="card-text">Descripcion: {{descripcion}}</p>
+      <input *ngIf="colorBoton === 'secondary'" type="text" placeholder="Descripcion" (keyup)="cambiarDescripcion($event)" [value]="descripcion">
+      <input class="btn btn-{{colorBoton}}" type="button" value="✏️" (click)="cambiaColor()">
+      <input class="btn btn-primary margin-boton" type="button" value="❌" (click)="borrarTarea()">
+      <input type="checkbox" (input)="desactivar()">✔️
     </div>
   </div>

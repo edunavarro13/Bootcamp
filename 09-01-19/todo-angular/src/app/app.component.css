@@ -19,3 +19,7 @@ header {
   background-color: rgb(138, 206, 37);
   border: 2px solid rgb(17, 13, 13);
 }
+
+.margin-boton {
+  margin-left: 5px;
+}
