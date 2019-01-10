@@ -6,6 +6,8 @@ import {
   EventEmitter
 } from '@angular/core';
 
+import { Tarea } from '../tarea.interface';
+
 @Component({
   selector: 'app-card-tarea',
   templateUrl: './card-tarea.component.html',
@@ -13,10 +15,11 @@ import {
 })
 export class CardTareaComponent implements OnInit {
   @Input() nombreTarea;
-  @Output() borrarNombre = new EventEmitter < object > ();
+  @Output() borrarNombre = new EventEmitter < Tarea > ();
+  @Output() modificarDescripcion = new EventEmitter <Tarea> ();
+  @Output() modificarCompletada = new EventEmitter <Tarea> ();
 
   colorBoton: string = 'primary';
-  descripcion: string = '';
   cabeceraActiva: string = 'cabecera-activa';
   tarjetaActiva: string = 'tarjeta-activa';
 
@@ -36,8 +39,10 @@ export class CardTareaComponent implements OnInit {
 
   cambiarDescripcion(ev) {
     if (ev.keyCode === 13) {
-      this.descripcion = ev.target.value;
-      this.colorBoton = 'primary'
+      this.modificarDescripcion.emit(this.nombreTarea);
+      this.nombreTarea.descripcion = ev.target.value;
+      this.colorBoton = 'primary';
+      
     }
   }
 
@@ -45,12 +50,20 @@ export class CardTareaComponent implements OnInit {
     if(this.cabeceraActiva === '') {
       this.cabeceraActiva = 'cabecera-activa';
       this.tarjetaActiva = 'tarjeta-activa';
+      this.nombreTarea.completada = false;
     } else {
+      this.cabeceraActiva = '';
+      this.tarjetaActiva = '';
+      this.nombreTarea.completada = true;
+    }
+    this.modificarCompletada.emit(this.nombreTarea);
+  }
+
+  ngOnInit() {
+    if(this.nombreTarea.completada) {
       this.cabeceraActiva = '';
       this.tarjetaActiva = '';
     }
   }
-
-  ngOnInit() {}
 
 }

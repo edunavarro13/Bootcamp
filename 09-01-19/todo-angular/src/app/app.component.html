@@ -28,7 +28,8 @@
 <div class="container">
   <div class="row">
     <div *ngFor="let tarea of tareasAux" class="col">
-      <app-card-tarea [nombreTarea]="tarea" (borrarNombre)="borrarElemento($event)"></app-card-tarea>
+      <app-card-tarea [nombreTarea]="tarea" (borrarNombre)="borrarElemento($event)" (modificarDescripcion)="modificarElemDescripcion($event)"
+        (modificarCompletada)="modificarElemCompletada($event)"></app-card-tarea>
     </div>
   </div>
 </div>

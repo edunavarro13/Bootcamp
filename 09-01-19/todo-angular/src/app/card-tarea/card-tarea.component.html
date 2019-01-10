@@ -4,10 +4,11 @@
     </div>
     <div class="card-body {{ tarjetaActiva }}">
       <h5 class="card-title">Nombre: {{nombreTarea.nombre}}</h5>
-      <p class="card-text">Descripcion: {{descripcion}}</p>
+      <p class="card-text">Descripcion: {{nombreTarea.descripcion}}</p>
       <input *ngIf="colorBoton === 'secondary'" type="text" placeholder="Descripcion" (keyup)="cambiarDescripcion($event)" [value]="descripcion">
       <input class="btn btn-{{colorBoton}}" type="button" value="✏️" (click)="cambiaColor()">
       <input class="btn btn-primary margin-boton" type="button" value="❌" (click)="borrarTarea()">
-      <input type="checkbox" (input)="desactivar()">✔️
+      <input type="checkbox" *ngIf="!nombreTarea.completada" (input)="desactivar()">
+      <input type="checkbox" *ngIf="nombreTarea.completada" (input)="desactivar()" checked>✔️️
     </div>
   </div>
