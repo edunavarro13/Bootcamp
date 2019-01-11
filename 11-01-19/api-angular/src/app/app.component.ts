@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GetPeliculasService } from './get-peliculas.service';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  apiKey: string = "e988e25a5b44ea6ca0329198f4427027";
-  urlDatos: string = `https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}`;
-  datos: object;
+  
+  datos: Array<object>;
+  datosTrending: Array<object>;
+  trending: boolean = false;
 
-  constructor(http: HttpClient) {
-    console.log(this.urlDatos);
-    http.get(this.urlDatos).subscribe( resultado => {
-      console.log(resultado);
-      this.datos = resultado["results"];
-    });
-    console.log(this.datos);
+  constructor(private api: GetPeliculasService) {
+    this.api.popularMovies().then((resultado) => this.datos = resultado["results"]);
+    this.api.trendingMovies().then((resultado) => this.datosTrending = resultado["results"]);
   }
 }

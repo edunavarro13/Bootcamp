@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { GetPeliculasService } from './get-peliculas.service';
+import { CardPeliculaComponent } from './card-pelicula/card-pelicula.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardPeliculaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [GetPeliculasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

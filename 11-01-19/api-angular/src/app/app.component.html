@@ -1,8 +1,23 @@
-<section class="movies">
-  <h1>Hola</h1>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo">Películas</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a (click)="trending=true">Trending</a></li>
+        <li><a (click)="trending=false">Popular</a></li>
+    </ul>
+  </div>
+</nav>
+<section>
   <div *ngIf="datos">
-    <div *ngFor="let movie of datos">
-      <h1>{{ movie.title }}</h1>
+    <div class="movies" *ngIf="trending">
+      <div *ngFor="let movie of datosTrending">
+        <app-card-pelicula [peli]="movie"></app-card-pelicula>
+      </div>
+    </div>
+    <div class="movies" *ngIf="!trending">
+      <div *ngFor="let movie of datos">
+        <app-card-pelicula [peli]="movie"></app-card-pelicula>
+      </div>
     </div>
   </div>
 </section>

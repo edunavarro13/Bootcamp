@@ -85,8 +85,6 @@ export class AppComponent {
     if (ev !== undefined && ev.keyCode === 13) {
       this.filtrarTarea = '';
       this.tareasAux = this.tareas;
-      console.log(this.tareas);
-      console.log(this.tareasAux);
     } else {
       this.tareasAux = this.tareas.filter((elem) => {
         return elem["nombre"].match(this.filtrarTarea) !== null;

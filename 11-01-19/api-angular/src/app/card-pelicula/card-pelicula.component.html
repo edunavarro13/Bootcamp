@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator image-small" src="{{ imagePath + peli.poster_path }}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{ peli.title }}<i class="material-icons right">{{ peli.release_date }}</i></span>
+      <p><a href="#">Más info</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{ peli.title }}<i class="material-icons right">❌</i></span>
+      <p>{{ peli.overview }}</p>
+    </div>
+  </div>

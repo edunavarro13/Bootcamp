@@ -2,5 +2,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 1em;
+    align-items: center;
+}
+section{
+    margin-top: 10px;
+}
+
+.brand-logo {
+    padding-left: 20px;
 }
