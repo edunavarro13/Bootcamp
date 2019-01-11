@@ -39,8 +39,8 @@ export class CardTareaComponent implements OnInit {
 
   cambiarDescripcion(ev) {
     if (ev.keyCode === 13) {
-      this.modificarDescripcion.emit(this.nombreTarea);
       this.nombreTarea.descripcion = ev.target.value;
+      this.modificarDescripcion.emit(this.nombreTarea);
       this.colorBoton = 'primary';
       
     }

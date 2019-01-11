@@ -13,8 +13,8 @@ import {
 })
 export class AppComponent {
   title = 'Practica todo-angular';
-  tareas: Array < Tarea > = [];
-  tareasAux: Array < Tarea > = [];
+  tareas: Array < Tarea > =  JSON.parse(localStorage.getItem('datos')) || []; // Si es null = [], si no lo almacenado
+  tareasAux: Array < Tarea > = JSON.parse(localStorage.getItem('datos')) || [];
   nuevaTarea = '';
   filtrarTarea = '';
   verError: boolean = false;
@@ -47,6 +47,7 @@ export class AppComponent {
       this.nuevaTarea = '';
       this.verError = false;
       this.tareasAux = this.tareas;
+      localStorage.setItem('datos', JSON.stringify(this.tareas));
     } else {
       this.verError = true;
     }
@@ -54,11 +55,13 @@ export class AppComponent {
   borrarElemento(ev: Tarea) {
     let pos = this.tareas.indexOf(ev);
     this.tareas.splice(pos, 1);
+    localStorage.setItem('datos', JSON.stringify(this.tareas));
     this.filtrar(undefined);
   }
 
   modificarElemDescripcion(ev: Tarea) {
     this.tareas[this.obtenerPosId(ev["id"])] = ev;
+    localStorage.setItem('datos', JSON.stringify(this.tareas));
     this.filtrar(undefined);
   }
 
