@@ -3,4 +3,5 @@ export interface Tarea {
     nombre: string;
     descripcion: string;
     completada: boolean;
+    color: string;
   }

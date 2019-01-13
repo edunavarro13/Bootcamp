@@ -7,8 +7,15 @@ header {
   background-color: rgb(24, 33, 153);
   color: white;
   padding-bottom: 5vh;
-  padding-top: 1vh;
   padding-left: 10vw;
+  margin-top: 0;
+  padding-top: 0;
+}
+.divRojo {
+  background-color: rgb(179, 11, 39);
+  color: white;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .error {

@@ -33,14 +33,16 @@ export class AppComponent {
           id: 1,
           nombre: this.nuevaTarea,
           descripcion: '',
-          completada: false
+          completada: false,
+          color: 'verde'
         });
       } else {
         this.tareas.push({
           id: this.tareas[tamano - 1]["id"] + 1,
           nombre: this.nuevaTarea,
           descripcion: '',
-          completada: false
+          completada: false,
+          color: 'verde'
         });
       }
 

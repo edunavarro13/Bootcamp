@@ -46,6 +46,11 @@ export class CardTareaComponent implements OnInit {
     }
   }
 
+  cambiaColorTarea(ev) {
+    this.nombreTarea.color = ev.target.value;
+    this.modificarDescripcion.emit(this.nombreTarea); // Puedo usar el mismo modificar Descripcion ya que modifica toda la Tarea
+  }
+
   desactivar() {
     if(this.cabeceraActiva === '') {
       this.cabeceraActiva = 'cabecera-activa';
