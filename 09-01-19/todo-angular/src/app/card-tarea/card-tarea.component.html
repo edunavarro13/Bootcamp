@@ -11,22 +11,12 @@
     <input class="btn btn-primary margin-boton" type="button" value="❌" (click)="borrarTarea()">
     <input type="checkbox" *ngIf="!nombreTarea.completada" (input)="desactivar()">
     <input type="checkbox" *ngIf="nombreTarea.completada" (input)="desactivar()" checked>✔️️
-    <select (change)="cambiaColorTarea($event)">
+    <select [(ngModel)]="nombreTarea.color" (change)="cambiaColorTarea($event)">
         <option value="verde">Verde</option>
         <option value="rojo">Rojo</option>
         <option value="azul">Azul</option>
         <option value="amarillo">Amarillo</option>
         <option value="negro">Negro</option>
-      <!-- <option *ngIf="nombreTarea.color==='verde'" value="verde" selected>Verde</option>
-      <option *ngIf="nombreTarea.color!=='verde'" value="verde">Verde</option>
-      <option *ngIf="nombreTarea.color==='rojo'" value="rojo" selected>Rojo</option>
-      <option *ngIf="nombreTarea.color!=='rojo'" value="rojo">Rojo</option>
-      <option *ngIf="nombreTarea.color==='azul'" value="azul" selected>Azul</option>
-      <option *ngIf="nombreTarea.color!=='azul'" value="azul">Azul</option>
-      <option *ngIf="nombreTarea.color==='amarillo'" value="amarillo" selected>Amarillo</option>
-      <option *ngIf="nombreTarea.color!=='amarillo'" value="amarillo">Amarillo</option>
-      <option *ngIf="nombreTarea.color==='negro'" value="negro" selected>Negro</option>
-      <option *ngIf="nombreTarea.color!=='negro'" value="negro">Negro</option> -->
     </select> 🖌
     <br><br>
     <div [ngSwitch]="nombreTarea.color">

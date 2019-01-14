@@ -3,6 +3,10 @@
     width: 20vw;
 }
 
+.letra-small {
+    font-size: 10px;
+}
+
 .card {
-    margin: 5px;
+    margin: 10px;
 }
